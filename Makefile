@@ -18,6 +18,10 @@ test:: compile validate-valuesets validate-examples check-formatting $(MERGED_SC
 	$(AJV) test -s $(MERGED_SCHEMA) -d "examples/*.json" --valid
 	$(AJV) test -s $(MERGED_SCHEMA) -d "test/invalid/*.json" --invalid
 
+testwithvalues::
+	$(AJV) test -r valueschemas/*.json -s $(MERGED_SCHEMA) -d "examples/*.json" --valid
+	$(AJV) test -r valueschemas/*.json -s $(MERGED_SCHEMA) -d "test/invalid/*.json" --invalid
+
 merge: $(MERGED_SCHEMA)
 
 compile::
