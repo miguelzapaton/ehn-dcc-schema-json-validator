@@ -1,5 +1,7 @@
 # *Proof of concept - JSON Schema $ref with enum validation
 
+_Important: For simplicity $ref is currently hardcoded in the Combined.Schema - please don't recombine for this proof of concept._
+
 # Digital Green Certificate Schema
 
 This repository contains a JSON schema for the EU Digital Green Certificate.
