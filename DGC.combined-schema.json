@@ -313,6 +313,7 @@
     "vaccine-mah-manf": {
       "description": "EU eHealthNetwork: Value Sets for Digital Green Certificates. version 1.0, 2021-04-16, section 2.4",
       "type": "string",
+      "$ref": "valueschemas/vaccine-mah-manf.json#/$defs/vaccine-mah-manf/items",
       "valueset-uri": "valuesets/vaccine-mah-manf.json"
     },
     "test-manf": {
