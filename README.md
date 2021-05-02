@@ -1,3 +1,5 @@
+# *Proof of concept - JSON Schema $ref with enum validation
+
 # Digital Green Certificate Schema
 
 This repository contains a JSON schema for the EU Digital Green Certificate.
