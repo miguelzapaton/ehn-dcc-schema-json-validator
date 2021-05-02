@@ -1,0 +1,13 @@
+{
+  "name": "ehn-dgc-schema-main",
+  "version": "1.0.0",
+  "scripts": {
+    "test1": "ajv -c ajv-formats --spec=draft2020 --strict=false test -r valueschemas/*.json -s DGC.combined-schema.json -d examples/*.json --valid",
+    "test2": "ajv -c ajv-formats --spec=draft2020 --strict=false test -r valueschemas/*.json -s DGC.combined-schema.json -d test/invalid/*.json --invalid"
+  },
+  "dependencies": {
+    "ajv": "^8.2.0",
+    "ajv-cli": "^5.0.0",
+    "ajv-formats": "^2.0.2"
+  }
+}
