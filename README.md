@@ -43,12 +43,12 @@ is the combined and value-extended full JSON schema used for all further validat
 
 ### /spec
 
-####/structure/jsonschema
+#### /structure/jsonschema
 
 This folder contains the different official release versions of the 
  [Digital Green Certificate Schema](https://github.com/ehn-digital-green-development/ehn-dgc-schema).
 
-####/structure/taxonomy
+#### /structure/taxonomy
 
 This folder contains the DGC taxonomy in form of "ValueSets" from the
 [Digital Green Certificate Schema](https://github.com/ehn-digital-green-development/ehn-dgc-schema) repository.
