@@ -109,10 +109,10 @@ Here you can find the validation test log files for the files validated from /da
 
 ## ToDo
 
--[ ] Add error handling
-  -[ ] JSON not parsable
-  -[ ] Invalid schema ver
-  -[ ] ...
+- [ ] Add error handling
+  - [ ] JSON not parsable
+  - [ ] Invalid schema ver
+  - [ ] ...
 
 ## Questions
 
