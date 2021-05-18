@@ -1,0 +1,271 @@
+../../data/dgc-testdata-latest/DK/2DCode/raw/2.json (Schema version: 1.0.0)
+ERRORS FOUND:
+{
+  "ver": "1.0.0",
+  "nam": {
+    "fn": "Åge",
+    "fnt": "AAGE",
+    "gn": "Ågesen",
+    "gnt": "AAGESEN"
+  },
+  "dob": "1945-11-20",
+  "t": [
+    {
+      "tg": "840539006",
+      "tt": "LP6464-4",
+      "ma": "1833",
+      "sc": "2021-05-15T06:00:00Z",
+      "dr": "2021-05-15T08:00:00Z",
+      "tr": "260415000",
+      "tc": "SSI-test",
+      "co": "DK",
+      "is": "Danish Health Data Authority",
+      "ci": "urn:uvci:01:DK:FF8D760C7DCF5F83AB73D50D8E671F40#U"
+    }
+  ]
+}
+[
+  {
+    "instancePath": "/t/0/ma",
+    "schemaPath": "#/properties/t/items/properties/ma/oneOf/0/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "344"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/ma",
+    "schemaPath": "#/properties/t/items/properties/ma/oneOf/1/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "345"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/ma",
+    "schemaPath": "#/properties/t/items/properties/ma/oneOf/2/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "1065"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/ma",
+    "schemaPath": "#/properties/t/items/properties/ma/oneOf/3/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "1097"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/ma",
+    "schemaPath": "#/properties/t/items/properties/ma/oneOf/4/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "1162"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/ma",
+    "schemaPath": "#/properties/t/items/properties/ma/oneOf/5/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "1173"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/ma",
+    "schemaPath": "#/properties/t/items/properties/ma/oneOf/6/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "1180"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/ma",
+    "schemaPath": "#/properties/t/items/properties/ma/oneOf/7/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "1218"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/ma",
+    "schemaPath": "#/properties/t/items/properties/ma/oneOf/8/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "1223"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/ma",
+    "schemaPath": "#/properties/t/items/properties/ma/oneOf/9/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "1232"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/ma",
+    "schemaPath": "#/properties/t/items/properties/ma/oneOf/10/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "1242"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/ma",
+    "schemaPath": "#/properties/t/items/properties/ma/oneOf/11/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "1244"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/ma",
+    "schemaPath": "#/properties/t/items/properties/ma/oneOf/12/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "1268"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/ma",
+    "schemaPath": "#/properties/t/items/properties/ma/oneOf/13/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "1271"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/ma",
+    "schemaPath": "#/properties/t/items/properties/ma/oneOf/14/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "1278"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/ma",
+    "schemaPath": "#/properties/t/items/properties/ma/oneOf/15/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "1304"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/ma",
+    "schemaPath": "#/properties/t/items/properties/ma/oneOf/16/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "1331"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/ma",
+    "schemaPath": "#/properties/t/items/properties/ma/oneOf/17/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "1333"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/ma",
+    "schemaPath": "#/properties/t/items/properties/ma/oneOf/18/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "1341"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/ma",
+    "schemaPath": "#/properties/t/items/properties/ma/oneOf/19/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "1343"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/ma",
+    "schemaPath": "#/properties/t/items/properties/ma/oneOf/20/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "1360"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/ma",
+    "schemaPath": "#/properties/t/items/properties/ma/oneOf/21/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "1363"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/ma",
+    "schemaPath": "#/properties/t/items/properties/ma/oneOf/22/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "1481"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/ma",
+    "schemaPath": "#/properties/t/items/properties/ma/oneOf/23/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "1484"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/ma",
+    "schemaPath": "#/properties/t/items/properties/ma/oneOf/24/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "1489"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/ma",
+    "schemaPath": "#/properties/t/items/properties/ma/oneOf/25/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "1767"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/ma",
+    "schemaPath": "#/properties/t/items/properties/ma/oneOf",
+    "keyword": "oneOf",
+    "params": {
+      "passingSchemas": null
+    },
+    "message": "must match exactly one schema in oneOf"
+  }
+]

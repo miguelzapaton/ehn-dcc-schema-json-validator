@@ -1,0 +1,6 @@
+# recommended template for .gitignore file in your own copy
+node_modules
+data
+resources-tmp/jsonschema/**/*_old_*
+test/dgc-testdata-latest/validation_run_*
+test/examples-latest/validation_run_*
