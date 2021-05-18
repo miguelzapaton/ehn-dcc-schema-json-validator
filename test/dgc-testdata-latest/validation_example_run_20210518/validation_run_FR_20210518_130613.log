@@ -1,0 +1,72 @@
+../../data/dgc-testdata-latest/FR/2DCode/raw/recovery_ok.json (Schema version: 1.0.0)
+ERRORS FOUND:
+{
+  "ver": "1.0.0",
+  "nam": {
+    "fn": "DUPOND",
+    "fnt": "DUPOND",
+    "gn": "Marie",
+    "gnt": "Marie"
+  },
+  "dob": "1962-07-01",
+  "r": [
+    {
+      "tg": "840539006",
+      "fr": "2021-05-02",
+      "co": "FR",
+      "is": "Laboratory",
+      "df": "2021-05-02",
+      "du": "2023-05-02",
+      "ci": "Certificate Identifier"
+    }
+  ]
+}
+[
+  {
+    "instancePath": "/nam/gnt",
+    "schemaPath": "#/properties/nam/properties/gnt/pattern",
+    "keyword": "pattern",
+    "params": {
+      "pattern": "^[A-Z<]*$"
+    },
+    "message": "must match pattern \"^[A-Z<]*$\""
+  }
+]
+../../data/dgc-testdata-latest/FR/2DCode/raw/test_pcr_ok.json (Schema version: 1.0.0)
+ERRORS FOUND:
+{
+  "ver": "1.0.0",
+  "nam": {
+    "fn": "DUPOND",
+    "fnt": "DUPOND",
+    "gn": "Marie",
+    "gnt": "Marie"
+  },
+  "dob": "1962-07-01",
+  "t": [
+    {
+      "tg": "840539006",
+      "tt": "2019-nCoV RT-qPCR",
+      "nm": "3D Medicines",
+      "ma": "1065",
+      "sc": 1620823284979,
+      "dr": 1620823284993,
+      "tr": "260415000",
+      "tc": "Testing Centre",
+      "co": "FR",
+      "is": "Laboratory",
+      "ci": "Identifier"
+    }
+  ]
+}
+[
+  {
+    "instancePath": "/nam/gnt",
+    "schemaPath": "#/properties/nam/properties/gnt/pattern",
+    "keyword": "pattern",
+    "params": {
+      "pattern": "^[A-Z<]*$"
+    },
+    "message": "must match pattern \"^[A-Z<]*$\""
+  }
+]
