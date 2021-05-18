@@ -33,7 +33,9 @@ Feel free to use your own examples.
 
 ### /resources-tmp
 
-Here the generated temporary JSON schema files are stored.
+Here are the temporary JSON schema files stored.
+
+The generated file
 
 *DGC.Schema.Combined.Full.json*
 
@@ -87,8 +89,11 @@ npm run updater
 ```
 npm run validator
 ```
-
 *Run it again after updating /data files.*
+
+4.) Check the validation log files under /test
+
+
 
 ### /test
 
@@ -101,6 +106,13 @@ Here you can find the validation test log files for the files validated from /da
 Here you can find the validation test log files for the files validated from /data/exmamples-latest
 
 ####
+
+## ToDo
+
+-[ ] Add error handling
+  -[ ] JSON not parsable
+  -[ ] Invalid schema ver
+  -[ ] ...
 
 ## Questions
 
