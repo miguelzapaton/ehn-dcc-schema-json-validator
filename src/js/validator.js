@@ -37,16 +37,6 @@ async function validateDGCTestDataJSON () {
 
   const ajvcachemap = new Map();
 
-  // To delete unused graphics etc
-  // const unusedfiles = glob.sync('../../data/dgc-testdata-latest/**/*.{png,PNG,jpg,JPG,jpeg,JPEG,md,MD}');
-  /*
-  for (const unusedfile of unusedfiles) {
-
-    fs.unlinkSync(unusedfile);
-
-  }
-  */
-
   const timestamp = getTimestamp();
 
   fs.mkdirSync('../../test/dgc-testdata-latest/validation_run_' + timestamp);

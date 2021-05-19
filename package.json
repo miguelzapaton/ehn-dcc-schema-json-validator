@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "updater": "cd src/js && node updater.js",
-    "validator": "cd src/js && node validator.js"
+    "validator": "cd src/js && node validator.js",
+    "cleaner": "cd src/js && node cleaner.js"
   },
   "dependencies": {
     "ajv": "^8.2.0",
