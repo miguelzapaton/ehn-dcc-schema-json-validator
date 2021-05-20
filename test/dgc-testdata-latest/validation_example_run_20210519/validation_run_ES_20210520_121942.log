@@ -1,4 +1,4 @@
-../../data/dgc-testdata-latest/ES/2DCode/raw/2103.json (Schema version: 1.0.0)
+../../data/dgc-testdata-latest/ES/2DCode/raw/2103.json (Schema version: 1.0.0 - validated with: 1.0.1)
 ERRORS FOUND:
 {
   "ver": "1.0.0",
