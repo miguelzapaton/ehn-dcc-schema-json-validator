@@ -3,6 +3,12 @@ import glob from 'glob';
 import Ajv from 'ajv/dist/2020.js';
 import addFormats from 'ajv-formats';
 
+const latestschemarevisionmap = new Map(
+  [
+      ['1', '1.0.1']
+    ]
+);
+
 
 async function compileAllDGCFullSchemas () {
 
@@ -49,56 +55,62 @@ async function validateDGCTestDataJSON () {
 
     const dgc = JSON.parse(fs.readFileSync(file, 'utf8'));
 
-    if (dgc != null && dgc.JSON != null && dgc.JSON.ver != null) {
+    if (dgc != null && dgc.JSON != null && dgc.JSON.ver != null && dgc.JSON.ver.length > 0) {
 
       const countrycode = file.match('../../data/dgc-testdata-latest/([A-Za-z]+)/')[1];
       const version = dgc.JSON.ver;
 
-      let validate;
+      const latestschemaversion = latestschemarevisionmap.get(version.substr(0,1));
 
-      if (ajvcachemap.has(version)) {
+      if (latestschemaversion != null) {
 
-        validate = ajvcachemap.get(version);
+        let validate;
 
-      } else {
+        if (ajvcachemap.has(latestschemaversion)) {
 
-        const ajv = new Ajv({strict: true, verbose: false});
-        addFormats(ajv);
-        const fullschema = JSON.parse(fs.readFileSync('../../resources-tmp/jsonschema/' + version + '/DGC.Schema.Combined.Full.json', 'utf8'));
-        validate = ajv.compile(fullschema);
+          validate = ajvcachemap.get(latestschemaversion);
 
-        ajvcachemap.set(version, validate);
+        } else {
 
-      }
+          const ajv = new Ajv({strict: true, verbose: false});
+          addFormats(ajv);
+          const fullschema = JSON.parse(fs.readFileSync('../../resources-tmp/jsonschema/' + latestschemaversion + '/DGC.Schema.Combined.Full.json', 'utf8'));
+          validate = ajv.compile(fullschema);
 
-      const valid = validate(dgc.JSON);
-      if (!valid) {
+          ajvcachemap.set(latestschemaversion, validate);
 
-        console.log(file);
-        log.write(file + ' (Schema version: ' + version + ')\n');
-        fs.appendFileSync('../../test/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', file + ' (Schema version: ' + version + ')\n');
+        }
 
-        console.log('ERRORS FOUND:');
-        log.write('ERRORS FOUND:\n');
-        fs.appendFileSync('../../test/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', 'ERRORS FOUND:\n');
+        const valid = validate(dgc.JSON);
+        if (!valid) {
 
-        const dgcjsonstr = JSON.stringify(dgc.JSON, null, 2) + '\n';
-        console.log(dgcjsonstr);
-        log.write(dgcjsonstr);
-        fs.appendFileSync('../../test/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', dgcjsonstr);
+          console.log(file + ' (Schema version: ' + version + ' - validated with: ' + latestschemaversion + ')');
+          log.write(file + ' (Schema version: ' + version + ' - validated with: ' + latestschemaversion + ')\n');
+          fs.appendFileSync('../../test/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', file + ' (Schema version: ' + version + ' - validated with: ' + latestschemaversion + ')\n');
 
-        const errstr = JSON.stringify(validate.errors, null, 2) + '\n';
-        console.log(errstr);
-        log.write(errstr);
-        fs.appendFileSync('../../test/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', errstr);
+          console.log('ERRORS FOUND:');
+          log.write('ERRORS FOUND:\n');
+          fs.appendFileSync('../../test/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', 'ERRORS FOUND:\n');
 
-      } else {
+          const dgcjsonstr = JSON.stringify(dgc.JSON, null, 2) + '\n';
+          console.log(dgcjsonstr);
+          log.write(dgcjsonstr);
+          fs.appendFileSync('../../test/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', dgcjsonstr);
 
-        console.log(file + ' (Schema version: ' + version + ')\n');
-        log.write(file + ' (Schema version: ' + version + ')\n');
+          const errstr = JSON.stringify(validate.errors, null, 2) + '\n';
+          console.log(errstr);
+          log.write(errstr);
+          fs.appendFileSync('../../test/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', errstr);
 
-        console.log('OK');
-        log.write('OK' + '\n');
+        } else {
+
+          console.log(file + ' (Schema version: ' + version + ' - validated with: ' + latestschemaversion + ')');
+          log.write(file + ' (Schema version: ' + version + ' - validated with: ' + latestschemaversion + ')\n');
+
+          console.log('OK');
+          log.write('OK' + '\n');
+
+        }
 
       }
 
@@ -133,51 +145,57 @@ async function validateDGCExampleDataJSON () {
 
     const dgc = JSON.parse(fs.readFileSync(file, 'utf8'));
 
-    if (dgc != null && dgc.ver != null) {
+    if (dgc != null && dgc.ver != null && dgc.ver.length > 0) {
 
       const version = dgc.ver;
 
-      let validate;
+      const latestschemaversion = latestschemarevisionmap.get(version.substr(0,1));
 
-      if (ajvcachemap.has(version)) {
+      if (latestschemaversion != null) {
 
-        validate = ajvcachemap.get(version);
+        let validate;
 
-      } else {
+        if (ajvcachemap.has(latestschemaversion)) {
 
-        const ajv = new Ajv({strict: true, verbose: false});
-        addFormats(ajv);
-        const fullschema = JSON.parse(fs.readFileSync('../../resources-tmp/jsonschema/' + version + '/DGC.Schema.Combined.Full.json', 'utf8'));
-        validate = ajv.compile(fullschema);
+          validate = ajvcachemap.get(latestschemaversion);
 
-        ajvcachemap.set(version, validate);
+        } else {
 
-      }
+          const ajv = new Ajv({strict: true, verbose: false});
+          addFormats(ajv);
+          const fullschema = JSON.parse(fs.readFileSync('../../resources-tmp/jsonschema/' + latestschemaversion + '/DGC.Schema.Combined.Full.json', 'utf8'));
+          validate = ajv.compile(fullschema);
 
-      const valid = validate(dgc);
-      if (!valid) {
+          ajvcachemap.set(latestschemaversion, validate);
 
-        console.log(file);
-        log.write(file + ' (Schema version: ' + version + ')\n');
+        }
 
-        console.log('ERRORS FOUND:');
-        log.write('ERRORS FOUND:\n');
+        const valid = validate(dgc);
+        if (!valid) {
 
-        const dgcjsonstr = JSON.stringify(dgc, null, 2) + '\n';
-        console.log(dgcjsonstr);
-        log.write(dgcjsonstr);
+          console.log(file + ' (Schema version: ' + version + ' - validated with: ' + latestschemaversion + ')');
+          log.write(file + ' (Schema version: ' + version + ' - validated with: ' + latestschemaversion + ')\n');
 
-        const errstr = JSON.stringify(validate.errors, null, 2) + '\n';
-        console.log(errstr);
-        log.write(errstr);
+          console.log('ERRORS FOUND:');
+          log.write('ERRORS FOUND:\n');
 
-      } else {
+          const dgcjsonstr = JSON.stringify(dgc, null, 2) + '\n';
+          console.log(dgcjsonstr);
+          log.write(dgcjsonstr);
 
-        console.log(file + ' (Schema version: ' + version + ')\n');
-        log.write(file + ' (Schema version: ' + version + ')\n');
+          const errstr = JSON.stringify(validate.errors, null, 2) + '\n';
+          console.log(errstr);
+          log.write(errstr);
 
-        console.log('OK');
-        log.write('OK' + '\n');
+        } else {
+
+          console.log(file + ' (Schema version: ' + version + ' - validated with: ' + latestschemaversion + ')');
+          log.write(file + ' (Schema version: ' + version + ' - validated with: ' + latestschemaversion + ')\n');
+
+          console.log('OK');
+          log.write('OK' + '\n');
+
+        }
 
       }
 
