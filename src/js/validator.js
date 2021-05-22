@@ -24,7 +24,7 @@ async function compileAllDGCFullSchemas () {
     const fullschema = JSON.parse(fs.readFileSync('../../resources-tmp/jsonschema/' + version + '/DGC.Schema.Combined.Full.json', 'utf8'));
 
     // As schema's semantic version is not part of the $id of the schema, different Ajv instances needed
-    const ajv = new Ajv({strict: true, verbose: true, code: {source: true, lines: true}});
+    const ajv = new Ajv({strict: true, verbose: true, allErrors: true, code: {source: true, lines: true}});
 
     addFormats(ajv);
 
@@ -53,11 +53,30 @@ async function validateDGCTestDataJSON () {
 
   for (const file of files) {
 
-    const dgc = JSON.parse(fs.readFileSync(file, 'utf8'));
+    const countrycode = file.match('../../data/dgc-testdata-latest/([A-Za-z]+)/')[1];
+
+    let dgc;
+
+    try {
+
+      dgc = JSON.parse(fs.readFileSync(file, 'utf8'));
+
+    } catch (error) {
+
+      console.log(file);
+      log.write(file + '\n');
+      fs.appendFileSync('../../test/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', file + '\n');
+
+      console.log('JSON PARSE ERROR' + error);
+      log.write('JSON PARSE ERROR\n' + error + '\n');
+      fs.appendFileSync('../../test/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', 'JSON PARSE ERROR\n' + error + '\n');
+
+      continue;
+
+    }
 
     if (dgc != null && dgc.JSON != null && dgc.JSON.ver != null && dgc.JSON.ver.length > 0) {
 
-      const countrycode = file.match('../../data/dgc-testdata-latest/([A-Za-z]+)/')[1];
       const version = dgc.JSON.ver;
 
       const latestschemaversion = latestschemarevisionmap.get(version.substr(0,1));
@@ -72,7 +91,7 @@ async function validateDGCTestDataJSON () {
 
         } else {
 
-          const ajv = new Ajv({strict: true, verbose: false});
+          const ajv = new Ajv({strict: true, verbose: false, allErrors: true});
           addFormats(ajv);
           const fullschema = JSON.parse(fs.readFileSync('../../resources-tmp/jsonschema/' + latestschemaversion + '/DGC.Schema.Combined.Full.json', 'utf8'));
           validate = ajv.compile(fullschema);
@@ -88,9 +107,9 @@ async function validateDGCTestDataJSON () {
           log.write(file + ' (Schema version: ' + version + ' - validated with: ' + latestschemaversion + ')\n');
           fs.appendFileSync('../../test/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', file + ' (Schema version: ' + version + ' - validated with: ' + latestschemaversion + ')\n');
 
-          console.log('ERRORS FOUND:');
-          log.write('ERRORS FOUND:\n');
-          fs.appendFileSync('../../test/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', 'ERRORS FOUND:\n');
+          console.log('VALIDATION ERRORS FOUND:');
+          log.write('VALIDATION ERRORS FOUND:\n');
+          fs.appendFileSync('../../test/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', 'VALIDATION ERRORS FOUND:\n');
 
           const dgcjsonstr = JSON.stringify(dgc.JSON, null, 2) + '\n';
           console.log(dgcjsonstr);
@@ -143,7 +162,23 @@ async function validateDGCExampleDataJSON () {
 
   for (const file of files) {
 
-    const dgc = JSON.parse(fs.readFileSync(file, 'utf8'));
+    let dgc;
+
+    try {
+
+      dgc = JSON.parse(fs.readFileSync(file, 'utf8'));
+
+    } catch (error) {
+
+      console.log(file);
+      log.write(file + '\n');
+
+      console.log('JSON PARSE ERROR' + error);
+      log.write('JSON PARSE ERROR\n' + error + '\n');
+
+      continue;
+
+    }
 
     if (dgc != null && dgc.ver != null && dgc.ver.length > 0) {
 
@@ -161,7 +196,7 @@ async function validateDGCExampleDataJSON () {
 
         } else {
 
-          const ajv = new Ajv({strict: true, verbose: false});
+          const ajv = new Ajv({strict: true, verbose: false, allErrors: true});
           addFormats(ajv);
           const fullschema = JSON.parse(fs.readFileSync('../../resources-tmp/jsonschema/' + latestschemaversion + '/DGC.Schema.Combined.Full.json', 'utf8'));
           validate = ajv.compile(fullschema);
