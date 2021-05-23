@@ -3,9 +3,9 @@
 
 ## Idea
 
-Instead of using different mechanisms for validating the structure, taxonomy ("ValueSets") and business rules of DGC JSON Data a *standardized* JSON Schema validation mechanism is leveraged for an integral pre-check. 
+Instead of using different mechanisms for validating the structure and taxonomy ("ValueSets") references of DGC JSON Data a *standardized* JSON Schema validation mechanism is leveraged for an integral pre-check. 
 
-During the DGC issuance workflow passing this pre-check could be a mandatory assertion for further processing.
+During the DGC issuance workflow passing this pre-check could be a mandatory assertion for the further processing (encoding, etc.).
 
 During the DGC verification workflow a successful pre-check could be required for the further application of the business rule logic.
 
@@ -66,19 +66,21 @@ This place is for different prototype implementations.
 
 Here you can find a JS (ES6) prototype implementation for the **updater** and the **validator**.
 
+For convenience there's also a small **cleaner** utility that allows removing all non-JSON files from newly imported test data.
+
 Feel free to try them out <ins>at your own risk</ins>:
 
 1.) Install NPM and dependencies from the *main package folder*
 
 ```
-npm i
+$ npm i
 ```
 
 
 2.) Run the updater from the *main package folder*
 
 ```
-npm run updater
+$ npm run updater
 ```
 
 *Always run it again after updating /spec data.*
@@ -87,7 +89,7 @@ npm run updater
 3.) Run the validator from the *main package folder*
 
 ```
-npm run validator
+$ npm run validator
 ```
 *Run it again after updating /data files.*
 
@@ -110,7 +112,6 @@ Here you can find the validation test log files for the files validated from /da
 ## ToDo
 
 - [ ] Add error handling
-  - [ ] JSON not parsable
   - [ ] Invalid schema ver
   - [ ] ...
 

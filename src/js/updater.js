@@ -221,7 +221,7 @@ async function compileDGCFullSchema (schemaversion) {
 
   console.log('START compileDGCFullSchema()');
 
-  const ajv = new Ajv({strict: true, verbose: true, code: {source: true, lines: true}});
+  const ajv = new Ajv({strict: true, verbose: true, allErrors: true, code: {source: true, lines: true}});
 
   addFormats(ajv);
 
