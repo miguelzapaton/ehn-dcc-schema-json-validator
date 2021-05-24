@@ -45,9 +45,9 @@ async function validateDGCTestDataJSON () {
 
   const timestamp = getTimestamp();
 
-  fs.mkdirSync('../../test/dgc-testdata-latest/validation_run_' + timestamp);
+  fs.mkdirSync('../../log/dgc-testdata-latest/validation_run_' + timestamp);
 
-  const log = fs.createWriteStream('../../test/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + timestamp + '.log', {flags: 'a'});
+  const log = fs.createWriteStream('../../log/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + timestamp + '.log', {flags: 'a'});
 
   const files = glob.sync('../../data/dgc-testdata-latest/**/*.json');
 
@@ -65,11 +65,11 @@ async function validateDGCTestDataJSON () {
 
       console.log(file);
       log.write(file + '\n');
-      fs.appendFileSync('../../test/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', file + '\n');
+      fs.appendFileSync('../../log/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', file + '\n');
 
       console.log('JSON PARSE ERROR' + error);
       log.write('JSON PARSE ERROR\n' + error + '\n');
-      fs.appendFileSync('../../test/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', 'JSON PARSE ERROR\n' + error + '\n');
+      fs.appendFileSync('../../log/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', 'JSON PARSE ERROR\n' + error + '\n');
 
       continue;
 
@@ -105,21 +105,21 @@ async function validateDGCTestDataJSON () {
 
           console.log(file + ' (Schema version: ' + version + ' - validated with: ' + latestschemaversion + ')');
           log.write(file + ' (Schema version: ' + version + ' - validated with: ' + latestschemaversion + ')\n');
-          fs.appendFileSync('../../test/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', file + ' (Schema version: ' + version + ' - validated with: ' + latestschemaversion + ')\n');
+          fs.appendFileSync('../../log/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', file + ' (Schema version: ' + version + ' - validated with: ' + latestschemaversion + ')\n');
 
           console.log('VALIDATION ERRORS FOUND:');
           log.write('VALIDATION ERRORS FOUND:\n');
-          fs.appendFileSync('../../test/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', 'VALIDATION ERRORS FOUND:\n');
+          fs.appendFileSync('../../log/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', 'VALIDATION ERRORS FOUND:\n');
 
           const dgcjsonstr = JSON.stringify(dgc.JSON, null, 2) + '\n';
           console.log(dgcjsonstr);
           log.write(dgcjsonstr);
-          fs.appendFileSync('../../test/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', dgcjsonstr);
+          fs.appendFileSync('../../log/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', dgcjsonstr);
 
           const errstr = JSON.stringify(validate.errors, null, 2) + '\n';
           console.log(errstr);
           log.write(errstr);
-          fs.appendFileSync('../../test/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', errstr);
+          fs.appendFileSync('../../log/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', errstr);
 
         } else {
 
@@ -154,9 +154,9 @@ async function validateDGCExampleDataJSON () {
 
   const timestamp = getTimestamp();
 
-  fs.mkdirSync('../../test/examples-latest/validation_run_' + timestamp);
+  fs.mkdirSync('../../log/examples-latest/validation_run_' + timestamp);
 
-  const log = fs.createWriteStream('../../test/examples-latest/validation_run_' + timestamp + '/validation_run_' + timestamp + '.log', {flags: 'a'});
+  const log = fs.createWriteStream('../../log/examples-latest/validation_run_' + timestamp + '/validation_run_' + timestamp + '.log', {flags: 'a'});
 
   const files = glob.sync('../../data/examples-latest/**/*.json');
 

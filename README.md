@@ -3,11 +3,21 @@
 
 ## Idea
 
-Instead of using different mechanisms for validating the structure and taxonomy ("ValueSets") references of DGC JSON Data a *standardized* JSON Schema validation mechanism is leveraged for an integral pre-check. 
+Instead of using different mechanisms for validating the structure and taxonomy ("ValueSets") references of DGC JSON Data, a *standardized* JSON Schema validation mechanism is leveraged for an integral data pre-check. 
 
-During the DGC issuance workflow passing this pre-check could be a mandatory assertion for the further processing (encoding, etc.).
+During the DGC Issuance workflow passing this data pre-check could be a mandatory assertion for further processing (encoding, signing, etc.).
 
-During the DGC verification workflow a successful pre-check could be required for the further application of the business rule logic.
+During the DGC Verification workflow a successful data pre-check could be required for the further application of the business rule logic.
+
+This procedure would especially make sense if the taxonomy value (sub-)sets would be specified at EU level, in contrast to national business rules.
+
+## Preconditions
+
+Key requirements for a successful implementation of this proposal:
+
+(1) "Add-only" taxonomy value sets (no removal of elements)
+
+(2) Immutable value IDs (no ID changes)
 
 ## Overview
 
