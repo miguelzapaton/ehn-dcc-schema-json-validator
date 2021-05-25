@@ -7,7 +7,7 @@ async function cleanDGCTestDataNoJSON () {
   console.log('START cleanDGCTestDataNoJSON()');
 
   // To delete unused graphics etc
-  const unusedfiles = glob.sync('../../data/dgc-testdata-latest/**/*.{png,PNG,jpg,JPG,jpeg,JPEG,md,MD}');
+  const unusedfiles = glob.sync('../../data/dgc-testdata-latest/**/*.{png,PNG,jpg,JPG,jpeg,JPEG,md,MD,txt}');
 
   for (const unusedfile of unusedfiles) {
 
