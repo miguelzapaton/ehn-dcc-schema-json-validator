@@ -1,60 +1,143 @@
-# *Proof of concept - JSON Schema $ref with enum validation
-
-_Important: For simplicity $ref is currently hardcoded in the Combined.Schema - please don't recombine for this proof of concept._
-
-# Digital Green Certificate Schema
-
-This repository contains a JSON schema for the EU Digital Green Certificate.
-
-**Schema version:** 1.0.1
-**Release date:** 2020-05-14
+# Proof of Concept: DGC JSON Data Validation with extended JSON Schemas 
 
 
-## Introduction
+## Idea
 
-The Digital Green Certificate (DGC) JSON schema is provided as a mechanism for supporting the serialization and  deserialization of the DGC payload, initially with focus on generation of a 2D barcode (QR Code).
+Instead of using different mechanisms for validating the structure and taxonomy ("ValueSets") references of DGC JSON Data, a *standardized* JSON Schema validation mechanism is leveraged for an integral data pre-check. 
 
-The schema is intended to support different use cases that EU Member States require. The schema shall also support conformity to the [EU legislation](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52021PC0130) regarding  what shall present in a certificate to ensure freedom of movement within EU Member States and also to allow interoperability with countries outside of the EU zone.
+During the DGC Issuance workflow passing this data pre-check could be a mandatory assertion for further processing (encoding, signing, etc.).
 
-The schema in conjunction with business rules (which may also be specific to a Member State) shall ensure conformity to the EU legislation, whereby the burden of conformity lies with the business rules and the DGC JSON schema plays a supporting role in allowing the data to be serialized and deserialized in a flexible, yet structured, manner.
+During the DGC Verification workflow a successful data pre-check could be required for the further application of the business rule logic.
+
+This procedure would especially make sense if the taxonomy value (sub-)sets would be specified at EU level, in contrast to national business rules.
+
+## Preconditions
+
+Key requirements for a successful implementation of this proposal:
+
+(1) "Add-only" taxonomy value sets (no removal of elements)
+
+(2) Immutable value IDs (no ID changes)
+
+## Overview
+
+![](doc/images/DGC-Schema-JSON-Validation-20210517.png)
+
+## Usage
+
+### /data
+
+#### /dgc-testdata-latest
+
+The test data comes from the [DGC Test Data Repository](https://github.com/eu-digital-green-certificates/dgc-testdata)
+
+Feel free to update the test data regularly.
+
+#### /examples-latest
+
+The test data comes from the [Digital Green Certificate Schema](https://github.com/ehn-digital-green-development/ehn-dgc-schema) project.
+
+Feel free to use your own examples.
+
+***
+
+### /resources-tmp
+
+Here are the temporary JSON schema files stored.
+
+The generated file
+
+*DGC.Schema.Combined.Full.json*
+
+is the combined and value-extended full JSON schema used for all further validations.
+
+***
+
+### /spec
+
+#### /structure/jsonschema
+
+This folder contains the different official release versions of the 
+ [Digital Green Certificate Schema](https://github.com/ehn-digital-green-development/ehn-dgc-schema).
+
+#### /structure/taxonomy
+
+This folder contains the DGC taxonomy in form of "ValueSets" from the
+[Digital Green Certificate Schema](https://github.com/ehn-digital-green-development/ehn-dgc-schema) repository.
 
 
-## Files
+***
 
-The main schema file is:
+### /src
 
-- DGC.schema.json
+This place is for different prototype implementations.
 
-With the definitions in:
+#### /js
 
-- DGC.Core.Types.schema.json
-- DGC.Types.schema.json
-- DGC.ValueSets.schema.json
+Here you can find a JS (ES6) prototype implementation for the **updater** and the **validator**.
 
-For easy testing, they are combined in:
+For convenience there's also a small **cleaner** utility that allows removing all non-JSON files from newly imported test data.
 
-- DGC.combined-schema.json
+Feel free to try them out <ins>at your own risk</ins>:
 
-But the above 4 files are always leading.
+1.) Install NPM and dependencies from the *main package folder*
 
-The files:
-
-- examples/*.json
-
-are examples created in vitro & very artificial.
+```
+$ npm i
+```
 
 
-## Implementation Notes
+2.) Run the updater from the *main package folder*
 
-A list of [Frequently Asked Questions](https://github.com/ehn-digital-green-development/ehn-dgc-schema/wiki/FAQ) for implementors can be found in the [repository wiki](https://github.com/ehn-digital-green-development/ehn-dgc-schema/wiki).
+```
+$ npm run updater
+```
 
-### CBOR Encoding
+*Always run it again after updating /spec data.*
 
-Concise Binary Object Representation (CBOR), specified in [RFC7049](https://tools.ietf.org/html/rfc7049), defines a number of major data types. The following types are REQUIRED to be used by parties creating electronic health certificates payloads:
 
-- Integers are encoded as CBOR major type 0, an unsigned integer.
-- Strings are encoded as CBOR major type 3, a text string.
-- Arrays are encoded as CBOR major type 4, an array of data items.
-- Objects are encoded as CBOR major type 5, a map of pairs of data items.
+3.) Run the validator from the *main package folder*
 
-Timestamps (defined by JSON type `string` and format `date-time`) MUST be encoded as CBOR major type 3, a text string, and formatted per [RFC 3339, section 5.6](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6), with tag 0 as specified by [RFC 8949, section 3.4.1](https://datatracker.ietf.org/doc/html/rfc8949#section-3.4.1).
+```
+$ npm run validator
+```
+*Run it again after updating /data files.*
+
+4.) Check the validation log files under /test
+
+
+
+### /test
+
+#### /dgc-testdata-latest
+
+Here you can find the validation test log files for the files validated from /data/dgc-testdata-latest
+
+#### /examples-latest
+
+Here you can find the validation test log files for the files validated from /data/exmamples-latest
+
+####
+
+## ToDo
+
+- [ ] Add error handling
+  - [ ] Invalid schema ver
+  - [ ] ...
+
+## Questions
+
+Please feel free to create an issue.
+
+
+## License
+
+For the source code under /src and this documentation:
+
+&copy; 2021 miguelzapaton and all other contributors
+
+Licensed under the **Apache License, Version 2.0** (the "License"); you may not use this file except in compliance with the License.
+
+You may obtain a copy of the License at https://www.apache.org/licenses/LICENSE-2.0.
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the [LICENSE](./LICENSE) for the specific language governing permissions and limitations under the License.

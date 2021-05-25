@@ -1,0 +1,56 @@
+../../data/dgc-testdata-latest/CY/2DCode/raw/3.json (Schema version: 1.0.0 - validated with: 1.0.1)
+VALIDATION ERRORS FOUND:
+{
+  "ver": "1.0.0",
+  "nam": {
+    "fn": "Ioannou",
+    "fnt": "IOANNOU",
+    "gn": "Kyriacos",
+    "gnt": "KYRIACOS"
+  },
+  "dob": "1985-02-12",
+  "t": [
+    {
+      "tg": "840539006",
+      "tt": "rcp",
+      "nm": "COVID19NAA",
+      "ma": "1304",
+      "sc": "2021-05-19T11:30:00.199Z",
+      "dr": "2021-05-19T12:30:00.188Z",
+      "tr": "260415000",
+      "tc": "ucy",
+      "co": "CY",
+      "is": "Ministry of Health",
+      "ci": "dgci:V1:CY:45AV1LDXST630TW6GLSN7BCER:64"
+    }
+  ]
+}
+[
+  {
+    "instancePath": "/t/0/tt",
+    "schemaPath": "#/properties/t/items/properties/tt/oneOf/0/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "LP6464-4"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/tt",
+    "schemaPath": "#/properties/t/items/properties/tt/oneOf/1/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "LP217198-3"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/tt",
+    "schemaPath": "#/properties/t/items/properties/tt/oneOf",
+    "keyword": "oneOf",
+    "params": {
+      "passingSchemas": null
+    },
+    "message": "must match exactly one schema in oneOf"
+  }
+]

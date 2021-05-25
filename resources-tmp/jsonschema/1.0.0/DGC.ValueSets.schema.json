@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://id.uvci.eu/DGC.ValueSets.schema.json",
+  "title": "EU DGC",
+  "description": "EU Digital Green Certificate Value Set Data Types",
+  "$defs": {
+    "disease-agent-targeted": {
+      "description": "EU eHealthNetwork: Value Sets for Digital Green Certificates. version 1.0, 2021-04-16, section 2.1",
+      "type": "string",
+      "$ref": "https://id.uvci.eu/DGC.Values.disease-agent-targeted.schema.json#/$defs/disease-agent-targeted/items"
+    },
+    "vaccine-prophylaxis": {
+      "description": "EU eHealthNetwork: Value Sets for Digital Green Certificates. version 1.0, 2021-04-16, section 2.2",
+      "type": "string",
+      "$ref": "https://id.uvci.eu/DGC.Values.vaccine-prophylaxis.schema.json#/$defs/vaccine-prophylaxis/items"
+    },
+    "vaccine-medicinal-product": {
+      "description": "EU eHealthNetwork: Value Sets for Digital Green Certificates. version 1.0, 2021-04-16, section 2.3",
+      "type": "string",
+      "$ref": "https://id.uvci.eu/DGC.Values.vaccine-medicinal-product.schema.json#/$defs/vaccine-medicinal-product/items"
+    },
+    "vaccine-mah-manf": {
+      "description": "EU eHealthNetwork: Value Sets for Digital Green Certificates. version 1.0, 2021-04-16, section 2.4",
+      "type": "string",
+      "$ref": "https://id.uvci.eu/DGC.Values.vaccine-mah-manf.schema.json#/$defs/vaccine-mah-manf/items"
+    },
+    "test-manf": {
+      "description": "EU eHealthNetwork: Value Sets for Digital Green Certificates. version 1.0, 2021-04-16, section 2.8",
+      "type": "string",
+      "$ref": "https://id.uvci.eu/DGC.Values.test-manf.schema.json#/$defs/test-manf/items"
+    },
+    "test-result": {
+      "description": "EU eHealthNetwork: Value Sets for Digital Green Certificates. version 1.0, 2021-04-16, section 2.9",
+      "type": "string",
+      "$ref": "https://id.uvci.eu/DGC.Values.test-result.schema.json#/$defs/test-result/items"
+    }
+  }
+}

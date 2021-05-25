@@ -1,0 +1,36 @@
+../../data/dgc-testdata-latest/ES/2DCode/raw/2103.json (Schema version: 1.0.0 - validated with: 1.0.1)
+ERRORS FOUND:
+{
+  "ver": "1.0.0",
+  "nam": {
+    "fn": "Romero Muñoz",
+    "fnt": "ROMERO<MUNOZ",
+    "gn": "José Carlos",
+    "gnt": "JOSE<CARLOS"
+  },
+  "dob": "2021-05-13",
+  "t": [
+    {
+      "vp": "1119349007",
+      "mp": "EU/1/20/1525",
+      "ma": "ORG-100001417",
+      "dn": "1",
+      "sn": "1",
+      "dt": "2021-05-13",
+      "co": "ES",
+      "is": "Ministerio de Sanidad",
+      "ci": "01ES20V000000000000000000083#Q"
+    }
+  ]
+}
+[
+  {
+    "instancePath": "/t/0",
+    "schemaPath": "#/properties/t/items/required",
+    "keyword": "required",
+    "params": {
+      "missingProperty": "tg"
+    },
+    "message": "must have required property 'tg'"
+  }
+]

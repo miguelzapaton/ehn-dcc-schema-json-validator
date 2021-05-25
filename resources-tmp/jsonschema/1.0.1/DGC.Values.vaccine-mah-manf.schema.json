@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://id.uvci.eu/DGC.Values.vaccine-mah-manf.schema.json",
+  "title": "EU DGC",
+  "description": "EU Digital Green Certificate",
+  "$comment": "PROOF OF CONCEPT - JSON Schema for values",
+  "type": "object",
+  "$defs": {
+    "vaccine-mah-manf": {
+      "type": "array",
+      "title": "vaccines-covid-19-auth-holders",
+      "items": {
+        "type": "string",
+        "oneOf": [
+          {
+            "const": "ORG-100001699"
+          },
+          {
+            "const": "ORG-100030215"
+          },
+          {
+            "const": "ORG-100001417"
+          },
+          {
+            "const": "ORG-100031184"
+          },
+          {
+            "const": "ORG-100006270"
+          },
+          {
+            "const": "ORG-100013793"
+          },
+          {
+            "const": "ORG-100020693"
+          },
+          {
+            "const": "ORG-100010771"
+          },
+          {
+            "const": "ORG-100024420"
+          },
+          {
+            "const": "ORG-100032020"
+          },
+          {
+            "const": "Gamaleya-Research-Institute"
+          },
+          {
+            "const": "Vector-Institute"
+          },
+          {
+            "const": "Sinovac-Biotech"
+          },
+          {
+            "const": "Bharat-Biotech"
+          }
+        ]
+      }
+    }
+  }
+}
