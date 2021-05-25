@@ -107,7 +107,7 @@ $ npm run validator
 
 
 
-### /test
+### /log
 
 #### /dgc-testdata-latest
 
