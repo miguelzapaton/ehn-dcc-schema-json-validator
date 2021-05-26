@@ -5,7 +5,7 @@ import addFormats from 'ajv-formats';
 
 const latestschemarevisionmap = new Map(
   [
-      ['1', '1.0.1']
+      ['1', '1.1.0']
     ]
 );
 
@@ -48,6 +48,13 @@ async function validateDGCTestDataJSON () {
   fs.mkdirSync('../../log/dgc-testdata-latest/validation_run_' + timestamp);
 
   const log = fs.createWriteStream('../../log/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + timestamp + '.log', {flags: 'a'});
+
+  console.log('Latest schema versions used: ');
+  log.write('Latest schema versions used: ');
+
+  const latestschemarevisionmapentries = Object.fromEntries(latestschemarevisionmap);
+  console.log(JSON.stringify(latestschemarevisionmapentries)+'\n');
+  log.write(JSON.stringify(latestschemarevisionmapentries)+'\n');
 
   const files = glob.sync('../../data/dgc-testdata-latest/**/*.json');
 
@@ -103,9 +110,9 @@ async function validateDGCTestDataJSON () {
         const valid = validate(dgc.JSON);
         if (!valid) {
 
-          console.log(file + ' (Schema version: ' + version + ' - validated with: ' + latestschemaversion + ')');
-          log.write(file + ' (Schema version: ' + version + ' - validated with: ' + latestschemaversion + ')\n');
-          fs.appendFileSync('../../log/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', file + ' (Schema version: ' + version + ' - validated with: ' + latestschemaversion + ')\n');
+          console.log(file + ' (Schema version tag: ' + version + ')');
+          log.write(file + ' (Schema version tag: ' + version + ')\n');
+          fs.appendFileSync('../../log/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', file + ' (Schema version tag: ' + version + ')\n');
 
           console.log('VALIDATION ERRORS FOUND:');
           log.write('VALIDATION ERRORS FOUND:\n');
@@ -123,8 +130,8 @@ async function validateDGCTestDataJSON () {
 
         } else {
 
-          console.log(file + ' (Schema version: ' + version + ' - validated with: ' + latestschemaversion + ')');
-          log.write(file + ' (Schema version: ' + version + ' - validated with: ' + latestschemaversion + ')\n');
+          console.log(file + ' (Schema version tag: ' + version + ')');
+          log.write(file + ' (Schema version tag: ' + version + ')\n');
 
           console.log('OK');
           log.write('OK' + '\n');
@@ -157,6 +164,13 @@ async function validateDGCExampleDataJSON () {
   fs.mkdirSync('../../log/examples-latest/validation_run_' + timestamp);
 
   const log = fs.createWriteStream('../../log/examples-latest/validation_run_' + timestamp + '/validation_run_' + timestamp + '.log', {flags: 'a'});
+
+  console.log('Latest schema versions used: ');
+  log.write('Latest schema versions used: ');
+
+  const latestschemarevisionmapentries = Object.fromEntries(latestschemarevisionmap);
+  console.log(JSON.stringify(latestschemarevisionmapentries)+'\n');
+  log.write(JSON.stringify(latestschemarevisionmapentries)+'\n');
 
   const files = glob.sync('../../data/examples-latest/**/*.json');
 
@@ -208,8 +222,8 @@ async function validateDGCExampleDataJSON () {
         const valid = validate(dgc);
         if (!valid) {
 
-          console.log(file + ' (Schema version: ' + version + ' - validated with: ' + latestschemaversion + ')');
-          log.write(file + ' (Schema version: ' + version + ' - validated with: ' + latestschemaversion + ')\n');
+          console.log(file + ' (Schema version tag: ' + version + ')');
+          log.write(file + ' (Schema version tag: ' + version + ')\n');
 
           console.log('ERRORS FOUND:');
           log.write('ERRORS FOUND:\n');
@@ -224,8 +238,8 @@ async function validateDGCExampleDataJSON () {
 
         } else {
 
-          console.log(file + ' (Schema version: ' + version + ' - validated with: ' + latestschemaversion + ')');
-          log.write(file + ' (Schema version: ' + version + ' - validated with: ' + latestschemaversion + ')\n');
+          console.log(file + ' (Schema version tag: ' + version + ')');
+          log.write(file + ' (Schema version tag: ' + version + ')\n');
 
           console.log('OK');
           log.write('OK' + '\n');

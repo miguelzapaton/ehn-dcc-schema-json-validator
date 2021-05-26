@@ -1,0 +1,54 @@
+../../data/dgc-testdata-latest/GR/2DCode/raw/4.json (Schema version tag: 1.0.0)
+VALIDATION ERRORS FOUND:
+{
+  "ver": "1.0.0",
+  "nam": {
+    "fn": "Μάριος",
+    "fnt": "MARIOS",
+    "gn": "Μενεξές",
+    "gnt": "MENEKSES"
+  },
+  "dob": "1959-10-12",
+  "t": [
+    {
+      "tg": "840539006",
+      "tt": "LP2171198-3",
+      "sc": "2021-05-20T10:05:32Z",
+      "dr": "2021-05-20T15:35:07Z",
+      "tr": "260415000",
+      "tc": "Central Athens Testing Center",
+      "co": "GR",
+      "is": "Ministry of Health",
+      "ci": "urn:uvci:01:GR:9X5D838D5"
+    }
+  ]
+}
+[
+  {
+    "instancePath": "/t/0/tt",
+    "schemaPath": "#/properties/t/items/properties/tt/oneOf/0/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "LP6464-4"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/tt",
+    "schemaPath": "#/properties/t/items/properties/tt/oneOf/1/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "LP217198-3"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/tt",
+    "schemaPath": "#/properties/t/items/properties/tt/oneOf",
+    "keyword": "oneOf",
+    "params": {
+      "passingSchemas": null
+    },
+    "message": "must match exactly one schema in oneOf"
+  }
+]
