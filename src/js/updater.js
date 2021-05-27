@@ -7,9 +7,9 @@ import $RefParser from 'json-schema-ref-parser';
 
 
 
-async function updateAllDGCSchemaVersions () {
+async function updateAllDCCSchemaVersions () {
 
-  console.log('START updateAllDGCSchemaVersions()');
+  console.log('START updateAllDCCSchemaVersions()');
 
   const schemaversions = glob.sync('../../spec/structure/jsonschema/*');
 
@@ -18,28 +18,28 @@ async function updateAllDGCSchemaVersions () {
     const version = schemaversion.split('/').pop();
     console.log(version);
 
-    await prepareDGCResources(version);
+    await prepareDCCResources(version);
 
-    await generateDGCValueSchemasFromDGCValueSets(version);
-    // await generateDGCValueSchemasFromDGCValueSetAPI(version);
+    await generateDCCValueSchemasFromDCCValueSets(version);
+    // await generateDCCValueSchemasFromDCCValueSetAPI(version);
 
-    await adaptDGCValueSetsSchema(version);
+    await adaptDCCValueSetsSchema(version);
 
-    await combineDGCFullSchema(version);
+    await combineDCCFullSchema(version);
 
-    await compileDGCFullSchema(version);
+    await compileDCCFullSchema(version);
 
   }
 
-  console.log('END updateAllDGCSchemaVersions()');
+  console.log('END updateAllDCCSchemaVersions()');
 
 }
 
 
 
-async function prepareDGCResources(schemaversion) {
+async function prepareDCCResources(schemaversion) {
 
-  console.log('START prepareDGCResources()');
+  console.log('START prepareDCCResources()');
 
   const timestamp = getTimestamp();
 
@@ -53,11 +53,11 @@ async function prepareDGCResources(schemaversion) {
 
   // copy structure jsonschema-latest main file
 
-  fs.copyFileSync('../../spec/structure/jsonschema/' + schemaversion + '/DGC.schema.json', '../../resources-tmp/jsonschema/' + schemaversion + '/DGC.schema.json');
+  fs.copyFileSync('../../spec/structure/jsonschema/' + schemaversion + '/DCC.schema.json', '../../resources-tmp/jsonschema/' + schemaversion + '/DCC.schema.json');
 
   // copy structure jsonschema-latest referenced files
 
-  const files = glob.sync('../../spec/structure/jsonschema/' + schemaversion + '/DGC.*.schema.json');
+  const files = glob.sync('../../spec/structure/jsonschema/' + schemaversion + '/DCC.*.schema.json');
 
   for (const file of files) {
 
@@ -69,14 +69,14 @@ async function prepareDGCResources(schemaversion) {
 
   }
 
-  console.log('END prepareDGCResources()');
+  console.log('END prepareDCCResources()');
 
 }
 
 
-async function generateDGCValueSchemasFromDGCValueSets (schemaversion) {
+async function generateDCCValueSchemasFromDCCValueSets (schemaversion) {
 
-  console.log('START generateDGCValueSchemasFromDGCValueSets()');
+  console.log('START generateDCCValueSchemasFromDCCValueSets()');
 
   const valuesetfiles = glob.sync('../../spec/taxonomy/valuesets-latest/*.json');
 
@@ -109,9 +109,9 @@ async function generateDGCValueSchemasFromDGCValueSets (schemaversion) {
 
     const valueschema = {
       '$schema': 'https://json-schema.org/draft/2020-12/schema',
-      '$id': 'https://id.uvci.eu/DGC.Values.' + filenamewoending + '.schema.json',
-      'title': 'EU DGC',
-      'description': 'EU Digital Green Certificate',
+      '$id': 'https://id.uvci.eu/DCC.Values.' + filenamewoending + '.schema.json',
+      'title': 'EU DCC',
+      'description': 'EU Digital Covid Certificate',
       '$comment': 'PROOF OF CONCEPT - JSON Schema for values',
       'type': 'object',
       '$defs': {
@@ -128,25 +128,25 @@ async function generateDGCValueSchemasFromDGCValueSets (schemaversion) {
       }
     };
 
-    fs.writeFileSync('../../resources-tmp/jsonschema/' + schemaversion + '/DGC.Values.' + filenamewoending + '.schema.json', JSON.stringify(valueschema, null, 2));
+    fs.writeFileSync('../../resources-tmp/jsonschema/' + schemaversion + '/DCC.Values.' + filenamewoending + '.schema.json', JSON.stringify(valueschema, null, 2));
 
   }
 
-  console.log('END generateDGCValueSchemasFromDGCValueSets()');
+  console.log('END generateDCCValueSchemasFromDCCValueSets()');
 
 }
 
 // TODO
-async function generateDGCValueSchemasFromDGCValueSetAPI () {
+async function generateDCCValueSchemasFromDCCValueSetAPI () {
 
 }
 
 
-async function adaptDGCValueSetsSchema (schemaversion) {
+async function adaptDCCValueSetsSchema (schemaversion) {
 
-  console.log('START adaptDGCValueSetsSchema()');
+  console.log('START adaptDCCValueSetsSchema()');
 
-  const valuesetsschema = JSON.parse(fs.readFileSync('../../resources-tmp/jsonschema/' + schemaversion + '/DGC.ValueSets.schema.json', 'utf8'));
+  const valuesetsschema = JSON.parse(fs.readFileSync('../../resources-tmp/jsonschema/' + schemaversion + '/DCC.ValueSets.schema.json', 'utf8'));
 
   const replacer = function (key, value) {
     if (value && typeof value === 'object') {
@@ -157,7 +157,7 @@ async function adaptDGCValueSetsSchema (schemaversion) {
           if (k === 'valueset-uri') {
             found = true;
             const filenamewoending = value[k].split('/').pop().replace('.json', '');
-            replacement['$ref'] = 'https://id.uvci.eu/DGC.Values.' + filenamewoending + '.schema.json#/$defs/' + filenamewoending + '/items';
+            replacement['$ref'] = 'https://id.uvci.eu/DCC.Values.' + filenamewoending + '.schema.json#/$defs/' + filenamewoending + '/items';
             delete replacement[k];
           }
         }
@@ -171,18 +171,18 @@ async function adaptDGCValueSetsSchema (schemaversion) {
 
   // console.log(valueschemaschema)
 
-  fs.writeFileSync('../../resources-tmp/jsonschema/' + schemaversion + '/DGC.ValueSets.schema.json', valueschemaschema);
+  fs.writeFileSync('../../resources-tmp/jsonschema/' + schemaversion + '/DCC.ValueSets.schema.json', valueschemaschema);
 
-  console.log('END adaptDGCValueSetsSchema()');
+  console.log('END adaptDCCValueSetsSchema()');
 
 }
 
 
-async function combineDGCFullSchema (schemaversion) {
+async function combineDCCFullSchema (schemaversion) {
 
-  console.log('START combineDGCFullSchema()');
+  console.log('START combineDCCFullSchema()');
 
-  const mainschema = JSON.parse(fs.readFileSync('../../resources-tmp/jsonschema/' + schemaversion + '/DGC.schema.json', 'utf8'));
+  const mainschema = JSON.parse(fs.readFileSync('../../resources-tmp/jsonschema/' + schemaversion + '/DCC.schema.json', 'utf8'));
 
   const refresolver = {
 
@@ -206,20 +206,20 @@ async function combineDGCFullSchema (schemaversion) {
 
     const schema = await $RefParser.dereference(mainschema, {resolve: {file: false, myres: refresolver}});
 
-    fs.writeFileSync('../../resources-tmp/jsonschema/' + schemaversion + '/DGC.Schema.Combined.Full.json', JSON.stringify(schema, null, 2));
+    fs.writeFileSync('../../resources-tmp/jsonschema/' + schemaversion + '/DCC.Schema.Combined.Full.json', JSON.stringify(schema, null, 2));
 
   } catch (err) {
     console.error(err);
   }
 
-  console.log('END combineDGCFullSchema()');
+  console.log('END combineDCCFullSchema()');
 
 }
 
 
-async function compileDGCFullSchema (schemaversion) {
+async function compileDCCFullSchema (schemaversion) {
 
-  console.log('START compileDGCFullSchema()');
+  console.log('START compileDCCFullSchema()');
 
   const ajv = new Ajv({strict: true, verbose: true, allErrors: true, code: {source: true, lines: true}});
 
@@ -227,14 +227,14 @@ async function compileDGCFullSchema (schemaversion) {
 
   // compile main schema
 
-  const fullschema = JSON.parse(fs.readFileSync('../../resources-tmp/jsonschema/' + schemaversion + '/DGC.Schema.Combined.Full.json', 'utf8'));
+  const fullschema = JSON.parse(fs.readFileSync('../../resources-tmp/jsonschema/' + schemaversion + '/DCC.Schema.Combined.Full.json', 'utf8'));
 
   const validate = ajv.compile(fullschema);
 
   const moduleCode = standaloneCode.default(ajv, validate);
-  fs.writeFileSync('../../resources-tmp/jsonschema/' + schemaversion + '/DGC-JSON-Validator-Standalone.js', moduleCode);
+  fs.writeFileSync('../../resources-tmp/jsonschema/' + schemaversion + '/DCC-JSON-Validator-Standalone.js', moduleCode);
 
-  console.log('END compileDGCFullSchema()');
+  console.log('END compileDCCFullSchema()');
 
 }
 
@@ -266,6 +266,6 @@ function getTimestamp () {
 
 (async () => {
 
-  await updateAllDGCSchemaVersions();
+  await updateAllDCCSchemaVersions();
 
 })();

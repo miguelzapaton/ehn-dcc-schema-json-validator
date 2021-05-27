@@ -1,13 +1,13 @@
-# Proof of Concept: DGC JSON Data Validation with value extended JSON Schemas 
+# Proof of Concept: DCC JSON Data Validation with value extended JSON Schemas 
 
 
 ## Idea
 
-Instead of using different mechanisms for validating the structure and taxonomy ("ValueSets") references of DGC JSON Data, a *standardized* JSON Schema validation mechanism is leveraged for an integral data pre-check. 
+Instead of using different mechanisms for validating the structure and taxonomy ("ValueSets") references of DCC JSON Data, a *standardized* JSON Schema validation mechanism is leveraged for an integral data pre-check. 
 
-During the DGC Issuance workflow passing this data pre-check could be a mandatory assertion for further processing (encoding, signing, etc.).
+During the DCC Issuance workflow passing this data pre-check could be a mandatory assertion for further processing (encoding, signing, etc.).
 
-During the DGC Verification workflow a successful data pre-check could be required for the further application of the business rule logic.
+During the DCC Verification workflow a successful data pre-check could be required for the further application of the business rule logic.
 
 This procedure would especially make sense if the taxonomy value (sub-)sets would be specified at EU level, in contrast to national business rules.
 
@@ -21,21 +21,21 @@ Key requirements for a successful implementation of this proposal:
 
 ## Overview
 
-![](doc/images/DGC-Schema-JSON-Validation-20210517.png)
+![](doc/images/DCC-Schema-JSON-Validation-20210517.png)
 
 ## Usage
 
 ### /data
 
-#### /dgc-testdata-latest
+#### /dcc-testdata-latest
 
-The test data comes from the [DGC Test Data Repository](https://github.com/eu-digital-green-certificates/dgc-testdata)
+The test data comes from the [DCC Test Data Repository](https://github.com/eu-digital-green-certificates/dcc-testdata)
 
 Feel free to update the test data regularly.
 
 #### /examples-latest
 
-The test data comes from the [Digital Green Certificate Schema](https://github.com/ehn-digital-green-development/ehn-dgc-schema) project.
+The test data comes from the [Digital Green Certificate Schema](https://github.com/ehn-digital-green-development/ehn-dcc-schema) project.
 
 Feel free to use your own examples.
 
@@ -47,7 +47,7 @@ Here are the temporary JSON schema files stored.
 
 The generated file is the combined and *value extended* *"full"* JSON schema:
 
-*[DGC.Schema.Combined.Full.json](/resources-tmp/jsonschema/1.1.0/DGC.Schema.Combined.Full.json)*
+*[DCC.Schema.Combined.Full.json](/resources-tmp/jsonschema/1.1.0/DCC.Schema.Combined.Full.json)*
 (example for version 1.1.0)
 
 It is used for all further validations and could be considered as "least common denominator" or "contract" for implementations.
@@ -59,12 +59,12 @@ It is used for all further validations and could be considered as "least common 
 #### /structure/jsonschema
 
 This folder contains the different official release versions of the 
- [Digital Green Certificate Schema](https://github.com/ehn-digital-green-development/ehn-dgc-schema).
+ [Digital Green Certificate Schema](https://github.com/ehn-digital-green-development/ehn-dcc-schema).
 
 #### /taxonomy/valuesets-latest
 
-This folder contains the DGC taxonomy in form of "ValueSets" from the
-[Digital Green Certificate Schema](https://github.com/ehn-digital-green-development/ehn-dgc-schema) repository.
+This folder contains the DCC taxonomy in form of "ValueSets" from the
+[Digital Green Certificate Schema](https://github.com/ehn-digital-green-development/ehn-dcc-schema) repository.
 
 
 ***
@@ -110,9 +110,9 @@ $ npm run validator
 
 ### /log
 
-#### /dgc-testdata-latest
+#### /dcc-testdata-latest
 
-Here you can find the validation test log files for the files validated from /data/dgc-testdata-latest
+Here you can find the validation test log files for the files validated from /data/dcc-testdata-latest
 
 #### /examples-latest
 

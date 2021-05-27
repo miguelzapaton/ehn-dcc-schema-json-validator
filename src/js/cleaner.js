@@ -2,12 +2,12 @@ import * as fs from 'fs';
 import glob from 'glob';
 
 
-async function cleanDGCTestDataNoJSON () {
+async function cleanDCCTestDataNoJSON () {
 
-  console.log('START cleanDGCTestDataNoJSON()');
+  console.log('START cleanDCCTestDataNoJSON()');
 
   // To delete unused graphics etc
-  const unusedfiles = glob.sync('../../data/dgc-testdata-latest/**/*.{png,PNG,jpg,JPG,jpeg,JPEG,md,MD,txt}');
+  const unusedfiles = glob.sync('../../data/dcc-testdata-latest/**/*.{png,PNG,jpg,JPG,jpeg,JPEG,md,MD,txt}');
 
   for (const unusedfile of unusedfiles) {
 
@@ -15,7 +15,7 @@ async function cleanDGCTestDataNoJSON () {
 
   }
 
-  console.log('END cleanDGCTestDataNoJSON()');
+  console.log('END cleanDCCTestDataNoJSON()');
 
 }
 
@@ -24,7 +24,7 @@ async function cleanDGCTestDataNoJSON () {
 
 (async () => {
 
-  await cleanDGCTestDataNoJSON();
+  await cleanDCCTestDataNoJSON();
 
 })();
 

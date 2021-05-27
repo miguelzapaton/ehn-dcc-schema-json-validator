@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://id.uvci.eu/DCC.Values.disease-agent-targeted.schema.json",
+  "title": "EU DCC",
+  "description": "EU Digital Covid Certificate",
+  "$comment": "PROOF OF CONCEPT - JSON Schema for values",
+  "type": "object",
+  "$defs": {
+    "disease-agent-targeted": {
+      "type": "array",
+      "title": "disease-agent-targeted",
+      "items": {
+        "type": "string",
+        "oneOf": [
+          {
+            "const": "840539006"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -10,9 +10,9 @@ const latestschemarevisionmap = new Map(
 );
 
 
-async function compileAllDGCFullSchemas () {
+async function compileAllDCCFullSchemas () {
 
-  console.log('START compileAllDGCFullSchemas()');
+  console.log('START compileAllDCCFullSchemas()');
 
   const schemaversions = glob.sync('../../spec/structure/jsonschema/*');
 
@@ -21,7 +21,7 @@ async function compileAllDGCFullSchemas () {
     const version = schemaversion.split('/').pop();
     console.log(version);
 
-    const fullschema = JSON.parse(fs.readFileSync('../../resources-tmp/jsonschema/' + version + '/DGC.Schema.Combined.Full.json', 'utf8'));
+    const fullschema = JSON.parse(fs.readFileSync('../../resources-tmp/jsonschema/' + version + '/DCC.Schema.Combined.Full.json', 'utf8'));
 
     // As schema's semantic version is not part of the $id of the schema, different Ajv instances needed
     const ajv = new Ajv({strict: true, verbose: true, allErrors: true, code: {source: true, lines: true}});
@@ -32,22 +32,22 @@ async function compileAllDGCFullSchemas () {
 
   }
 
-  console.log('END compileAllDGCFullSchemas()');
+  console.log('END compileAllDCCFullSchemas()');
 
 }
 
 
-async function validateDGCTestDataJSON () {
+async function validateDCCTestDataJSON () {
 
-  console.log('START validateDGCTestDataJSON()');
+  console.log('START validateDCCTestDataJSON()');
 
   const ajvcachemap = new Map();
 
   const timestamp = getTimestamp();
 
-  fs.mkdirSync('../../log/dgc-testdata-latest/validation_run_' + timestamp);
+  fs.mkdirSync('../../log/dcc-testdata-latest/validation_run_' + timestamp);
 
-  const log = fs.createWriteStream('../../log/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + timestamp + '.log', {flags: 'a'});
+  const log = fs.createWriteStream('../../log/dcc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + timestamp + '.log', {flags: 'a'});
 
   console.log('Latest schema versions used: ');
   log.write('Latest schema versions used: ');
@@ -56,35 +56,35 @@ async function validateDGCTestDataJSON () {
   console.log(JSON.stringify(latestschemarevisionmapentries)+'\n');
   log.write(JSON.stringify(latestschemarevisionmapentries)+'\n');
 
-  const files = glob.sync('../../data/dgc-testdata-latest/**/*.json');
+  const files = glob.sync('../../data/dcc-testdata-latest/**/*.json');
 
   for (const file of files) {
 
-    const countrycode = file.match('../../data/dgc-testdata-latest/([A-Za-z]+)/')[1];
+    const countrycode = file.match('../../data/dcc-testdata-latest/([A-Za-z]+)/')[1];
 
-    let dgc;
+    let dcc;
 
     try {
 
-      dgc = JSON.parse(fs.readFileSync(file, 'utf8'));
+      dcc = JSON.parse(fs.readFileSync(file, 'utf8'));
 
     } catch (error) {
 
       console.log(file);
       log.write(file + '\n');
-      fs.appendFileSync('../../log/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', file + '\n');
+      fs.appendFileSync('../../log/dcc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', file + '\n');
 
       console.log('JSON PARSE ERROR' + error);
       log.write('JSON PARSE ERROR\n' + error + '\n');
-      fs.appendFileSync('../../log/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', 'JSON PARSE ERROR\n' + error + '\n');
+      fs.appendFileSync('../../log/dcc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', 'JSON PARSE ERROR\n' + error + '\n');
 
       continue;
 
     }
 
-    if (dgc != null && dgc.JSON != null && dgc.JSON.ver != null && dgc.JSON.ver.length > 0) {
+    if (dcc != null && dcc.JSON != null && dcc.JSON.ver != null && dcc.JSON.ver.length > 0) {
 
-      const version = dgc.JSON.ver;
+      const version = dcc.JSON.ver;
 
       const latestschemaversion = latestschemarevisionmap.get(version.substr(0,1));
 
@@ -100,33 +100,33 @@ async function validateDGCTestDataJSON () {
 
           const ajv = new Ajv({strict: true, verbose: false, allErrors: true});
           addFormats(ajv);
-          const fullschema = JSON.parse(fs.readFileSync('../../resources-tmp/jsonschema/' + latestschemaversion + '/DGC.Schema.Combined.Full.json', 'utf8'));
+          const fullschema = JSON.parse(fs.readFileSync('../../resources-tmp/jsonschema/' + latestschemaversion + '/DCC.Schema.Combined.Full.json', 'utf8'));
           validate = ajv.compile(fullschema);
 
           ajvcachemap.set(latestschemaversion, validate);
 
         }
 
-        const valid = validate(dgc.JSON);
+        const valid = validate(dcc.JSON);
         if (!valid) {
 
           console.log(file + ' (Schema version tag: ' + version + ')');
           log.write(file + ' (Schema version tag: ' + version + ')\n');
-          fs.appendFileSync('../../log/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', file + ' (Schema version tag: ' + version + ')\n');
+          fs.appendFileSync('../../log/dcc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', file + ' (Schema version tag: ' + version + ')\n');
 
           console.log('VALIDATION ERRORS FOUND:');
           log.write('VALIDATION ERRORS FOUND:\n');
-          fs.appendFileSync('../../log/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', 'VALIDATION ERRORS FOUND:\n');
+          fs.appendFileSync('../../log/dcc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', 'VALIDATION ERRORS FOUND:\n');
 
-          const dgcjsonstr = JSON.stringify(dgc.JSON, null, 2) + '\n';
-          console.log(dgcjsonstr);
-          log.write(dgcjsonstr);
-          fs.appendFileSync('../../log/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', dgcjsonstr);
+          const dccjsonstr = JSON.stringify(dcc.JSON, null, 2) + '\n';
+          console.log(dccjsonstr);
+          log.write(dccjsonstr);
+          fs.appendFileSync('../../log/dcc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', dccjsonstr);
 
           const errstr = JSON.stringify(validate.errors, null, 2) + '\n';
           console.log(errstr);
           log.write(errstr);
-          fs.appendFileSync('../../log/dgc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', errstr);
+          fs.appendFileSync('../../log/dcc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', errstr);
 
         } else {
 
@@ -144,18 +144,18 @@ async function validateDGCTestDataJSON () {
 
   }
 
-  console.log('Validated ' + files.length + ' DGC JSON files.');
+  console.log('Validated ' + files.length + ' DCC JSON files.');
 
-  log.end('Validated ' + files.length + ' DGC JSON files.');
+  log.end('Validated ' + files.length + ' DCC JSON files.');
 
-  console.log('END validateDGCTestDataJSON()');
+  console.log('END validateDCCTestDataJSON()');
 
 }
 
 
-async function validateDGCExampleDataJSON () {
+async function validateDCCExampleDataJSON () {
 
-  console.log('START validateDGCExampleDataJSON()');
+  console.log('START validateDCCExampleDataJSON()');
 
   const ajvcachemap = new Map();
 
@@ -176,11 +176,11 @@ async function validateDGCExampleDataJSON () {
 
   for (const file of files) {
 
-    let dgc;
+    let dcc;
 
     try {
 
-      dgc = JSON.parse(fs.readFileSync(file, 'utf8'));
+      dcc = JSON.parse(fs.readFileSync(file, 'utf8'));
 
     } catch (error) {
 
@@ -194,9 +194,9 @@ async function validateDGCExampleDataJSON () {
 
     }
 
-    if (dgc != null && dgc.ver != null && dgc.ver.length > 0) {
+    if (dcc != null && dcc.ver != null && dcc.ver.length > 0) {
 
-      const version = dgc.ver;
+      const version = dcc.ver;
 
       const latestschemaversion = latestschemarevisionmap.get(version.substr(0,1));
 
@@ -212,14 +212,14 @@ async function validateDGCExampleDataJSON () {
 
           const ajv = new Ajv({strict: true, verbose: false, allErrors: true});
           addFormats(ajv);
-          const fullschema = JSON.parse(fs.readFileSync('../../resources-tmp/jsonschema/' + latestschemaversion + '/DGC.Schema.Combined.Full.json', 'utf8'));
+          const fullschema = JSON.parse(fs.readFileSync('../../resources-tmp/jsonschema/' + latestschemaversion + '/DCC.Schema.Combined.Full.json', 'utf8'));
           validate = ajv.compile(fullschema);
 
           ajvcachemap.set(latestschemaversion, validate);
 
         }
 
-        const valid = validate(dgc);
+        const valid = validate(dcc);
         if (!valid) {
 
           console.log(file + ' (Schema version tag: ' + version + ')');
@@ -228,9 +228,9 @@ async function validateDGCExampleDataJSON () {
           console.log('ERRORS FOUND:');
           log.write('ERRORS FOUND:\n');
 
-          const dgcjsonstr = JSON.stringify(dgc, null, 2) + '\n';
-          console.log(dgcjsonstr);
-          log.write(dgcjsonstr);
+          const dccjsonstr = JSON.stringify(dcc, null, 2) + '\n';
+          console.log(dccjsonstr);
+          log.write(dccjsonstr);
 
           const errstr = JSON.stringify(validate.errors, null, 2) + '\n';
           console.log(errstr);
@@ -252,11 +252,11 @@ async function validateDGCExampleDataJSON () {
 
   }
 
-  console.log('Validated ' + files.length + ' DGC JSON example files.');
+  console.log('Validated ' + files.length + ' DCC JSON example files.');
 
-  log.end('Validated ' + files.length + ' DGC JSON example files.');
+  log.end('Validated ' + files.length + ' DCC JSON example files.');
 
-  console.log('END validateDGCExampleDataJSON()');
+  console.log('END validateDCCExampleDataJSON()');
 
 }
 
@@ -288,11 +288,11 @@ function getTimestamp () {
 
 (async () => {
 
-  await compileAllDGCFullSchemas();
+  await compileAllDCCFullSchemas();
 
-  await validateDGCTestDataJSON();
+  await validateDCCTestDataJSON();
 
-  await validateDGCExampleDataJSON();
+  await validateDCCExampleDataJSON();
 
 })();
 

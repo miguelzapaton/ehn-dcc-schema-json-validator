@@ -1,7 +1,7 @@
 {
-  "name": "ehn-dgc-schema-json-validator",
+  "name": "ehn-dcc-schema-json-validator",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.2.1",
   "private": true,
   "scripts": {
     "updater": "cd src/js && node updater.js",
