@@ -47,8 +47,8 @@ Here are the temporary JSON schema files stored.
 
 The generated file is the combined and *value extended* *"full"* JSON schema:
 
-*[DGC.Schema.Combined.Full.json](/resources-tmp/jsonschema/1.1.1/DGC.Schema.Combined.Full.json)*
-(example for version 1.1.1)
+*[DGC.Schema.Combined.Full.json](/resources-tmp/jsonschema/1.1.0/DGC.Schema.Combined.Full.json)*
+(example for version 1.1.0)
 
 It is used for all further validations and could be considered as "least common denominator" or "contract" for implementations.
 
