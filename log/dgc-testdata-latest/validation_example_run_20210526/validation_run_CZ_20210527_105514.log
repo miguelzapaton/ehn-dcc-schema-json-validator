@@ -1,0 +1,98 @@
+../../data/dgc-testdata-latest/CZ/2DCode/raw/1.json
+JSON PARSE ERROR
+SyntaxError: Unexpected token ﻿ in JSON at position 0
+../../data/dgc-testdata-latest/CZ/2DCode/raw/2.json (Schema version tag: 1.0.1)
+VALIDATION ERRORS FOUND:
+{
+  "dob": "2000-11-19",
+  "nam": {
+    "fn": "Nov�k",
+    "fnt": "Novak",
+    "gn": "Jan",
+    "gnt": "Jan"
+  },
+  "r": [
+    {
+      "ci": "f8y624zp8va5zjszcw652m4xxtf4bqdz",
+      "co": "CZ",
+      "df": "2021-03-20",
+      "du": "2021-09-06",
+      "fr": "2021-03-10",
+      "is": "Ministry of Health of the Czech Republic",
+      "tg": "840539006"
+    }
+  ],
+  "ver": "1.0.1"
+}
+[
+  {
+    "instancePath": "/nam/fnt",
+    "schemaPath": "#/properties/nam/properties/fnt/pattern",
+    "keyword": "pattern",
+    "params": {
+      "pattern": "^[A-Z<]*$"
+    },
+    "message": "must match pattern \"^[A-Z<]*$\""
+  },
+  {
+    "instancePath": "/nam/gnt",
+    "schemaPath": "#/properties/nam/properties/gnt/pattern",
+    "keyword": "pattern",
+    "params": {
+      "pattern": "^[A-Z<]*$"
+    },
+    "message": "must match pattern \"^[A-Z<]*$\""
+  }
+]
+../../data/dgc-testdata-latest/CZ/2DCode/raw/3.json
+JSON PARSE ERROR
+SyntaxError: Unexpected token ﻿ in JSON at position 0
+../../data/dgc-testdata-latest/CZ/2DCode/raw/4.json
+JSON PARSE ERROR
+SyntaxError: Unexpected token ﻿ in JSON at position 0
+../../data/dgc-testdata-latest/CZ/2DCode/raw/5.json (Schema version tag: 1.0.1)
+VALIDATION ERRORS FOUND:
+{
+  "dob": "2000-11-19",
+  "nam": {
+    "fn": "Nov�k",
+    "fnt": "Novak",
+    "gn": "Jan",
+    "gnt": "Jan"
+  },
+  "v": [
+    {
+      "ci": "mktp5hrwy2rtyqg5bzy737m97apthmn5",
+      "co": "CZ",
+      "dn": 1,
+      "dt": "2021-02-11",
+      "is": "Ministry of Health of the Czech Republic",
+      "ma": "ORG-100030215",
+      "mp": "EU/1/20/1528",
+      "sd": 2,
+      "tg": "840539006",
+      "vp": "1119349007"
+    }
+  ],
+  "ver": "1.0.1"
+}
+[
+  {
+    "instancePath": "/nam/fnt",
+    "schemaPath": "#/properties/nam/properties/fnt/pattern",
+    "keyword": "pattern",
+    "params": {
+      "pattern": "^[A-Z<]*$"
+    },
+    "message": "must match pattern \"^[A-Z<]*$\""
+  },
+  {
+    "instancePath": "/nam/gnt",
+    "schemaPath": "#/properties/nam/properties/gnt/pattern",
+    "keyword": "pattern",
+    "params": {
+      "pattern": "^[A-Z<]*$"
+    },
+    "message": "must match pattern \"^[A-Z<]*$\""
+  }
+]

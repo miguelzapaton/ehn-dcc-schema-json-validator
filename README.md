@@ -1,4 +1,4 @@
-# Proof of Concept: DGC JSON Data Validation with extended JSON Schemas 
+# Proof of Concept: DGC JSON Data Validation with value extended JSON Schemas 
 
 
 ## Idea
@@ -45,11 +45,12 @@ Feel free to use your own examples.
 
 Here are the temporary JSON schema files stored.
 
-The generated file
+The generated file is the combined and *value extended* *"full"* JSON schema:
 
-*DGC.Schema.Combined.Full.json*
+*[DGC.Schema.Combined.Full.json](/resources-tmp/1.1.1/DGC.Schema.Combined.Full.json)*
+(example for version 1.1.1)
 
-is the combined and value-extended full JSON schema used for all further validations.
+It is used for all further validations and could be considered as "least common denominator" or "contract" for implementations.
 
 ***
 
@@ -60,7 +61,7 @@ is the combined and value-extended full JSON schema used for all further validat
 This folder contains the different official release versions of the 
  [Digital Green Certificate Schema](https://github.com/ehn-digital-green-development/ehn-dgc-schema).
 
-#### /structure/taxonomy
+#### /taxonomy/valuesets-latest
 
 This folder contains the DGC taxonomy in form of "ValueSets" from the
 [Digital Green Certificate Schema](https://github.com/ehn-digital-green-development/ehn-dgc-schema) repository.
