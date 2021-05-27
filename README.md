@@ -116,7 +116,7 @@ Here you can find the validation test log files for the files validated from /da
 
 #### /examples-latest
 
-Here you can find the validation test log files for the files validated from /data/exmamples-latest
+Here you can find the validation test log files for the files validated from /data/examples-latest
 
 ####
 
