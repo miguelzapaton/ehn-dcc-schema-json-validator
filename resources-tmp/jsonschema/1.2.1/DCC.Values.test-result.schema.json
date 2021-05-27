@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://id.uvci.eu/DCC.Values.test-result.schema.json",
+  "title": "EU DCC",
+  "description": "EU Digital Covid Certificate",
+  "$comment": "PROOF OF CONCEPT - JSON Schema for values",
+  "type": "object",
+  "$defs": {
+    "test-result": {
+      "type": "array",
+      "title": "covid-19-lab-result",
+      "items": {
+        "type": "string",
+        "oneOf": [
+          {
+            "const": "260373001"
+          },
+          {
+            "const": "260415000"
+          }
+        ]
+      }
+    }
+  }
+}
