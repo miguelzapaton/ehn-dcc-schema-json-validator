@@ -1,0 +1,343 @@
+Latest schema versions used: {"1":"1.2.0"}
+../../data/examples-latest/contrived-translit.json (Schema version tag: 1.0.0)
+OK
+../../data/examples-latest/invalid/empty.json (Schema version tag: 1.0.0)
+ERRORS FOUND:
+{
+  "ver": "1.0.0",
+  "nam": {
+    "fn": "d'Arsøns - van Halen",
+    "gn": "François-Joan",
+    "fnt": "DARSONS<VAN<HALEN",
+    "gnt": "FRANCOIS<JOAN"
+  },
+  "dob": "2009-02-28",
+  "v": []
+}
+[
+  {
+    "instancePath": "/v",
+    "schemaPath": "#/properties/v/minItems",
+    "keyword": "minItems",
+    "params": {
+      "limit": 1
+    },
+    "message": "must NOT have fewer than 1 items"
+  }
+]
+../../data/examples-latest/invalid/invalid_dob.json (Schema version tag: 1.0.0)
+ERRORS FOUND:
+{
+  "ver": "1.0.0",
+  "nam": {
+    "fn": "d'Arsøns - van Halen",
+    "gn": "François-Joan",
+    "fnt": "DARSONS<VAN<HALEN",
+    "gnt": "FRANCOIS<JOAN"
+  },
+  "dob": "1809-02-28",
+  "v": [
+    {
+      "tg": "840539006",
+      "vp": "1119349007",
+      "mp": "EU/1/20/1528",
+      "ma": "ORG-100030215",
+      "dn": 2,
+      "sd": 2,
+      "dt": "2021-04-21",
+      "co": "NL",
+      "is": "Ministry of Public Health, Welfare and Sport",
+      "ci": "urn:uvci:01:NL:PlA8UWS60Z4RZXVALl6GAZ"
+    }
+  ]
+}
+[
+  {
+    "instancePath": "/dob",
+    "schemaPath": "#/properties/dob/pattern",
+    "keyword": "pattern",
+    "params": {
+      "pattern": "^(19|20)\\d\\d(-\\d\\d){0,2}$"
+    },
+    "message": "must match pattern \"^(19|20)\\d\\d(-\\d\\d){0,2}$\""
+  }
+]
+../../data/examples-latest/invalid/invalid_vac.json (Schema version tag: 1.0.0)
+ERRORS FOUND:
+{
+  "ver": "1.0.0",
+  "nam": {
+    "fn": "d'Arsøns - van Halen",
+    "gn": "François-Joan",
+    "fnt": "DARSONS<VAN<HALEN",
+    "gnt": "FRANCOIS<JOAN"
+  },
+  "dob": "2009-02-28",
+  "v": [
+    {
+      "tg": "840539006",
+      "vp": "1119349007",
+      "mp": "EU/1/20/1528",
+      "ma": "ORG-100030215",
+      "dn": 2,
+      "sd": 2,
+      "co": "NL",
+      "is": "Ministry of Public Health, Welfare and Sport",
+      "ci": "urn:uvci:01:NL:PlA8UWS60Z4RZXVALl6GAZ"
+    }
+  ]
+}
+[
+  {
+    "instancePath": "/v/0",
+    "schemaPath": "#/properties/v/items/required",
+    "keyword": "required",
+    "params": {
+      "missingProperty": "dt"
+    },
+    "message": "must have required property 'dt'"
+  }
+]
+../../data/examples-latest/invalid/missing_dob.json (Schema version tag: 1.0.0)
+ERRORS FOUND:
+{
+  "ver": "1.0.0",
+  "nam": {
+    "fn": "d'Arsøns - van Halen",
+    "gn": "François-Joan",
+    "fnt": "DARSONS<VAN<HALEN",
+    "gnt": "FRANCOIS<JOAN"
+  },
+  "v": [
+    {
+      "tg": "840539006",
+      "vp": "1119349007",
+      "mp": "EU/1/20/1528",
+      "ma": "ORG-100030215",
+      "dn": 2,
+      "sd": 2,
+      "dt": "2021-04-21",
+      "co": "NL",
+      "is": "Ministry of Public Health, Welfare and Sport",
+      "ci": "urn:uvci:01:NL:PlA8UWS60Z4RZXVALl6GAZ"
+    }
+  ]
+}
+[
+  {
+    "instancePath": "",
+    "schemaPath": "#/required",
+    "keyword": "required",
+    "params": {
+      "missingProperty": "dob"
+    },
+    "message": "must have required property 'dob'"
+  }
+]
+../../data/examples-latest/invalid/missing_fnt.json (Schema version tag: 1.0.0)
+ERRORS FOUND:
+{
+  "ver": "1.0.0",
+  "nam": {
+    "fn": "d'Arsøns - van Halen",
+    "gn": "François-Joan"
+  },
+  "dob": "2009-02-28",
+  "v": [
+    {
+      "tg": "840539006",
+      "vp": "1119349007",
+      "mp": "EU/1/20/1528",
+      "ma": "ORG-100030215",
+      "dn": 2,
+      "sd": 2,
+      "dt": "2021-04-21",
+      "co": "NL",
+      "is": "Ministry of Public Health, Welfare and Sport",
+      "ci": "urn:uvci:01:NL:PlA8UWS60Z4RZXVALl6GAZ"
+    }
+  ]
+}
+[
+  {
+    "instancePath": "/nam",
+    "schemaPath": "#/properties/nam/required",
+    "keyword": "required",
+    "params": {
+      "missingProperty": "fnt"
+    },
+    "message": "must have required property 'fnt'"
+  }
+]
+../../data/examples-latest/invalid/vac_wrong_ma_value.json (Schema version tag: 1.0.0)
+ERRORS FOUND:
+{
+  "ver": "1.0.0",
+  "nam": {
+    "fn": "d'Arsøns - van Halen",
+    "gn": "François-Joan",
+    "fnt": "DARSONS<VAN<HALEN",
+    "gnt": "FRANCOIS<JOAN"
+  },
+  "dob": "2009-02-28",
+  "v": [
+    {
+      "tg": "840539006",
+      "vp": "1119349007",
+      "mp": "EU/1/20/1528",
+      "ma": "ORG-nada",
+      "dn": 2,
+      "sd": 2,
+      "dt": "2021-04-21",
+      "co": "NL",
+      "is": "Ministry of Public Health, Welfare and Sport",
+      "ci": "urn:uvci:01:NL:PlA8UWS60Z4RZXVALl6GAZ"
+    }
+  ]
+}
+[
+  {
+    "instancePath": "/v/0/ma",
+    "schemaPath": "#/properties/v/items/properties/ma/oneOf/0/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "ORG-100001699"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/ma",
+    "schemaPath": "#/properties/v/items/properties/ma/oneOf/1/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "ORG-100030215"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/ma",
+    "schemaPath": "#/properties/v/items/properties/ma/oneOf/2/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "ORG-100001417"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/ma",
+    "schemaPath": "#/properties/v/items/properties/ma/oneOf/3/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "ORG-100031184"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/ma",
+    "schemaPath": "#/properties/v/items/properties/ma/oneOf/4/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "ORG-100006270"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/ma",
+    "schemaPath": "#/properties/v/items/properties/ma/oneOf/5/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "ORG-100013793"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/ma",
+    "schemaPath": "#/properties/v/items/properties/ma/oneOf/6/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "ORG-100020693"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/ma",
+    "schemaPath": "#/properties/v/items/properties/ma/oneOf/7/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "ORG-100010771"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/ma",
+    "schemaPath": "#/properties/v/items/properties/ma/oneOf/8/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "ORG-100024420"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/ma",
+    "schemaPath": "#/properties/v/items/properties/ma/oneOf/9/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "ORG-100032020"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/ma",
+    "schemaPath": "#/properties/v/items/properties/ma/oneOf/10/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "Gamaleya-Research-Institute"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/ma",
+    "schemaPath": "#/properties/v/items/properties/ma/oneOf/11/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "Vector-Institute"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/ma",
+    "schemaPath": "#/properties/v/items/properties/ma/oneOf/12/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "Sinovac-Biotech"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/ma",
+    "schemaPath": "#/properties/v/items/properties/ma/oneOf/13/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "Bharat-Biotech"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/ma",
+    "schemaPath": "#/properties/v/items/properties/ma/oneOf",
+    "keyword": "oneOf",
+    "params": {
+      "passingSchemas": null
+    },
+    "message": "must match exactly one schema in oneOf"
+  }
+]
+../../data/examples-latest/rec.json (Schema version tag: 1.0.0)
+OK
+../../data/examples-latest/test-naa.json (Schema version tag: 1.0.0)
+OK
+../../data/examples-latest/test-rat.json (Schema version tag: 1.0.0)
+OK
+../../data/examples-latest/vac.json (Schema version tag: 1.0.0)
+OK
+Validated 11 DCC JSON example files.

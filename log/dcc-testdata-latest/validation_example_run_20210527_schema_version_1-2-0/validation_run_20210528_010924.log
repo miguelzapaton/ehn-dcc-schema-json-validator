@@ -1,4 +1,4 @@
-Latest schema versions used: {"1":"1.1.0"}
+Latest schema versions used: {"1":"1.2.0"}
 ../../data/dcc-testdata-latest/AT/2DCode/raw/1.json (Schema version tag: 1.0.0)
 OK
 ../../data/dcc-testdata-latest/AT/2DCode/raw/2.json (Schema version tag: 1.0.0)
@@ -45,104 +45,16 @@ OK
 OK
 ../../data/dcc-testdata-latest/CY/2DCode/raw/4.json (Schema version tag: 1.0.0)
 OK
-../../data/dcc-testdata-latest/CZ/2DCode/raw/1.json
-JSON PARSE ERROR
-SyntaxError: Unexpected token ﻿ in JSON at position 0
+../../data/dcc-testdata-latest/CZ/2DCode/raw/1.json (Schema version tag: 1.0.1)
+OK
 ../../data/dcc-testdata-latest/CZ/2DCode/raw/2.json (Schema version tag: 1.0.1)
-VALIDATION ERRORS FOUND:
-{
-  "dob": "2000-11-19",
-  "nam": {
-    "fn": "Nov�k",
-    "fnt": "Novak",
-    "gn": "Jan",
-    "gnt": "Jan"
-  },
-  "r": [
-    {
-      "ci": "f8y624zp8va5zjszcw652m4xxtf4bqdz",
-      "co": "CZ",
-      "df": "2021-03-20",
-      "du": "2021-09-06",
-      "fr": "2021-03-10",
-      "is": "Ministry of Health of the Czech Republic",
-      "tg": "840539006"
-    }
-  ],
-  "ver": "1.0.1"
-}
-[
-  {
-    "instancePath": "/nam/fnt",
-    "schemaPath": "#/properties/nam/properties/fnt/pattern",
-    "keyword": "pattern",
-    "params": {
-      "pattern": "^[A-Z<]*$"
-    },
-    "message": "must match pattern \"^[A-Z<]*$\""
-  },
-  {
-    "instancePath": "/nam/gnt",
-    "schemaPath": "#/properties/nam/properties/gnt/pattern",
-    "keyword": "pattern",
-    "params": {
-      "pattern": "^[A-Z<]*$"
-    },
-    "message": "must match pattern \"^[A-Z<]*$\""
-  }
-]
-../../data/dcc-testdata-latest/CZ/2DCode/raw/3.json
-JSON PARSE ERROR
-SyntaxError: Unexpected token ﻿ in JSON at position 0
-../../data/dcc-testdata-latest/CZ/2DCode/raw/4.json
-JSON PARSE ERROR
-SyntaxError: Unexpected token ﻿ in JSON at position 0
+OK
+../../data/dcc-testdata-latest/CZ/2DCode/raw/3.json (Schema version tag: 1.0.1)
+OK
+../../data/dcc-testdata-latest/CZ/2DCode/raw/4.json (Schema version tag: 1.0.1)
+OK
 ../../data/dcc-testdata-latest/CZ/2DCode/raw/5.json (Schema version tag: 1.0.1)
-VALIDATION ERRORS FOUND:
-{
-  "dob": "2000-11-19",
-  "nam": {
-    "fn": "Nov�k",
-    "fnt": "Novak",
-    "gn": "Jan",
-    "gnt": "Jan"
-  },
-  "v": [
-    {
-      "ci": "mktp5hrwy2rtyqg5bzy737m97apthmn5",
-      "co": "CZ",
-      "dn": 1,
-      "dt": "2021-02-11",
-      "is": "Ministry of Health of the Czech Republic",
-      "ma": "ORG-100030215",
-      "mp": "EU/1/20/1528",
-      "sd": 2,
-      "tg": "840539006",
-      "vp": "1119349007"
-    }
-  ],
-  "ver": "1.0.1"
-}
-[
-  {
-    "instancePath": "/nam/fnt",
-    "schemaPath": "#/properties/nam/properties/fnt/pattern",
-    "keyword": "pattern",
-    "params": {
-      "pattern": "^[A-Z<]*$"
-    },
-    "message": "must match pattern \"^[A-Z<]*$\""
-  },
-  {
-    "instancePath": "/nam/gnt",
-    "schemaPath": "#/properties/nam/properties/gnt/pattern",
-    "keyword": "pattern",
-    "params": {
-      "pattern": "^[A-Z<]*$"
-    },
-    "message": "must match pattern \"^[A-Z<]*$\""
-  }
-]
+OK
 ../../data/dcc-testdata-latest/DE/2DCode/raw/1.json (Schema version tag: 1.0.0)
 OK
 ../../data/dcc-testdata-latest/DE/2DCode/raw/2.json (Schema version tag: 1.0.0)
@@ -175,6 +87,414 @@ OK
 OK
 ../../data/dcc-testdata-latest/ES/2DCode/raw/103.json (Schema version tag: 1.0.0)
 OK
+../../data/dcc-testdata-latest/ES/2DCode/raw/1101.json (Schema version tag: 1.0.0)
+VALIDATION ERRORS FOUND:
+{
+  "ver": "1.0.0",
+  "nam": {
+    "fn": "MARQUEZ SANCHEZ",
+    "fnt": "MARQUEZ<SANCHEZ",
+    "gn": "JULIA",
+    "gnt": "JULIA"
+  },
+  "dob": "1989-04-27",
+  "v": [
+    {
+      "tg": "729999",
+      "vp": "729999",
+      "mp": "729999",
+      "ma": "729999",
+      "dn": 2,
+      "sd": 2,
+      "dt": "2021-02-06",
+      "co": "ES",
+      "is": "Servicio Extremeño de Salud",
+      "ci": "01ES11VBB823DB3EB6D47BA11F09#5"
+    }
+  ]
+}
+[
+  {
+    "instancePath": "/v/0/tg",
+    "schemaPath": "#/properties/v/items/properties/tg/oneOf/0/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "840539006"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/tg",
+    "schemaPath": "#/properties/v/items/properties/tg/oneOf",
+    "keyword": "oneOf",
+    "params": {
+      "passingSchemas": null
+    },
+    "message": "must match exactly one schema in oneOf"
+  },
+  {
+    "instancePath": "/v/0/vp",
+    "schemaPath": "#/properties/v/items/properties/vp/oneOf/0/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "1119305005"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/vp",
+    "schemaPath": "#/properties/v/items/properties/vp/oneOf/1/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "1119349007"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/vp",
+    "schemaPath": "#/properties/v/items/properties/vp/oneOf/2/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "J07BX03"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/vp",
+    "schemaPath": "#/properties/v/items/properties/vp/oneOf",
+    "keyword": "oneOf",
+    "params": {
+      "passingSchemas": null
+    },
+    "message": "must match exactly one schema in oneOf"
+  },
+  {
+    "instancePath": "/v/0/mp",
+    "schemaPath": "#/properties/v/items/properties/mp/oneOf/0/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "EU/1/20/1528"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/mp",
+    "schemaPath": "#/properties/v/items/properties/mp/oneOf/1/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "EU/1/20/1507"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/mp",
+    "schemaPath": "#/properties/v/items/properties/mp/oneOf/2/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "EU/1/21/1529"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/mp",
+    "schemaPath": "#/properties/v/items/properties/mp/oneOf/3/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "EU/1/20/1525"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/mp",
+    "schemaPath": "#/properties/v/items/properties/mp/oneOf/4/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "CVnCoV"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/mp",
+    "schemaPath": "#/properties/v/items/properties/mp/oneOf/5/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "Sputnik-V"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/mp",
+    "schemaPath": "#/properties/v/items/properties/mp/oneOf/6/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "Convidecia"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/mp",
+    "schemaPath": "#/properties/v/items/properties/mp/oneOf/7/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "EpiVacCorona"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/mp",
+    "schemaPath": "#/properties/v/items/properties/mp/oneOf/8/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "BBIBP-CorV"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/mp",
+    "schemaPath": "#/properties/v/items/properties/mp/oneOf/9/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "Inactivated-SARS-CoV-2-Vero-Cell"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/mp",
+    "schemaPath": "#/properties/v/items/properties/mp/oneOf/10/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "CoronaVac"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/mp",
+    "schemaPath": "#/properties/v/items/properties/mp/oneOf/11/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "Covaxin"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/mp",
+    "schemaPath": "#/properties/v/items/properties/mp/oneOf",
+    "keyword": "oneOf",
+    "params": {
+      "passingSchemas": null
+    },
+    "message": "must match exactly one schema in oneOf"
+  },
+  {
+    "instancePath": "/v/0/ma",
+    "schemaPath": "#/properties/v/items/properties/ma/oneOf/0/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "ORG-100001699"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/ma",
+    "schemaPath": "#/properties/v/items/properties/ma/oneOf/1/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "ORG-100030215"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/ma",
+    "schemaPath": "#/properties/v/items/properties/ma/oneOf/2/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "ORG-100001417"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/ma",
+    "schemaPath": "#/properties/v/items/properties/ma/oneOf/3/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "ORG-100031184"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/ma",
+    "schemaPath": "#/properties/v/items/properties/ma/oneOf/4/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "ORG-100006270"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/ma",
+    "schemaPath": "#/properties/v/items/properties/ma/oneOf/5/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "ORG-100013793"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/ma",
+    "schemaPath": "#/properties/v/items/properties/ma/oneOf/6/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "ORG-100020693"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/ma",
+    "schemaPath": "#/properties/v/items/properties/ma/oneOf/7/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "ORG-100010771"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/ma",
+    "schemaPath": "#/properties/v/items/properties/ma/oneOf/8/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "ORG-100024420"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/ma",
+    "schemaPath": "#/properties/v/items/properties/ma/oneOf/9/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "ORG-100032020"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/ma",
+    "schemaPath": "#/properties/v/items/properties/ma/oneOf/10/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "Gamaleya-Research-Institute"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/ma",
+    "schemaPath": "#/properties/v/items/properties/ma/oneOf/11/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "Vector-Institute"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/ma",
+    "schemaPath": "#/properties/v/items/properties/ma/oneOf/12/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "Sinovac-Biotech"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/ma",
+    "schemaPath": "#/properties/v/items/properties/ma/oneOf/13/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "Bharat-Biotech"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/v/0/ma",
+    "schemaPath": "#/properties/v/items/properties/ma/oneOf",
+    "keyword": "oneOf",
+    "params": {
+      "passingSchemas": null
+    },
+    "message": "must match exactly one schema in oneOf"
+  }
+]
+../../data/dcc-testdata-latest/ES/2DCode/raw/1102.json (Schema version tag: 1.0.0)
+OK
+../../data/dcc-testdata-latest/ES/2DCode/raw/1103.json (Schema version tag: 1.0.0)
+VALIDATION ERRORS FOUND:
+{
+  "ver": "1.0.0",
+  "nam": {
+    "fn": "RODRIGUEZ ACERO",
+    "fnt": "RODRIGUEZ<ACERO",
+    "gn": "ESTEFANIA",
+    "gnt": "ESTEFANIA"
+  },
+  "dob": "1992-03-21",
+  "t": [
+    {
+      "tg": "94558-4",
+      "tt": "LP217198-3",
+      "sc": "2021-05-12T17:04:08+02:00",
+      "dr": "2021-05-12T17:04:08+02:00",
+      "tr": "NEGATIVO",
+      "tc": "SERVICIO EXTREMEÑO DE SALUD",
+      "co": "ES",
+      "is": "Servicio Extremeño de Salud",
+      "ci": "01ES11T45918524638E9B21A8451#1"
+    }
+  ]
+}
+[
+  {
+    "instancePath": "/t/0/tg",
+    "schemaPath": "#/properties/t/items/properties/tg/oneOf/0/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "840539006"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/tg",
+    "schemaPath": "#/properties/t/items/properties/tg/oneOf",
+    "keyword": "oneOf",
+    "params": {
+      "passingSchemas": null
+    },
+    "message": "must match exactly one schema in oneOf"
+  },
+  {
+    "instancePath": "/t/0/tr",
+    "schemaPath": "#/properties/t/items/properties/tr/oneOf/0/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "260373001"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/tr",
+    "schemaPath": "#/properties/t/items/properties/tr/oneOf/1/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "260415000"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/tr",
+    "schemaPath": "#/properties/t/items/properties/tr/oneOf",
+    "keyword": "oneOf",
+    "params": {
+      "passingSchemas": null
+    },
+    "message": "must match exactly one schema in oneOf"
+  }
+]
 ../../data/dcc-testdata-latest/ES/2DCode/raw/1501.json (Schema version tag: 1.0.0)
 OK
 ../../data/dcc-testdata-latest/ES/2DCode/raw/1502.json (Schema version tag: 1.0.0)
@@ -192,6 +512,12 @@ OK
 ../../data/dcc-testdata-latest/ES/2DCode/raw/2102.json (Schema version tag: 1.0.0)
 OK
 ../../data/dcc-testdata-latest/ES/2DCode/raw/2103.json (Schema version tag: 1.0.0)
+OK
+../../data/dcc-testdata-latest/ES/2DCode/raw/401.json (Schema version tag: 1.0.0)
+OK
+../../data/dcc-testdata-latest/ES/2DCode/raw/402.json (Schema version tag: 1.0.0)
+OK
+../../data/dcc-testdata-latest/ES/2DCode/raw/403.json (Schema version tag: 1.0.0)
 OK
 ../../data/dcc-testdata-latest/ES/2DCode/raw/501.json (Schema version tag: 1.0.0)
 OK
@@ -74980,4 +75306,4 @@ OK
 OK
 ../../data/dcc-testdata-latest/SK/2DCode/raw/8.json (Schema version tag: 1.0.0)
 OK
-Validated 518 DCC JSON files.
+Validated 524 DCC JSON files.

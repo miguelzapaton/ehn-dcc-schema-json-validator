@@ -1,27 +1,27 @@
-../../data/dgc-testdata-latest/LV/2DCode/raw/2.json (Schema version tag: 1.0.0)
+../../data/dcc-testdata-latest/IT/2DCode/raw/4.json (Schema version tag: 1.0.0)
 VALIDATION ERRORS FOUND:
 {
   "ver": "1.0.0",
-  "dob": "1995-07-06",
   "nam": {
-    "fn": "Zalmanis",
-    "fnt": "ZALMANIS",
-    "gn": "Ēriks",
-    "gnt": "ERIKS"
+    "fn": "Di Caprio",
+    "fnt": "DI<CAPRIO",
+    "gn": "Marilù Teresa",
+    "gnt": "MARILU<TERESA"
   },
+  "dob": "1977-06-16",
   "t": [
     {
       "tg": "840539006",
       "tt": "LP6464-4",
-      "nm": "1copy COVID-19 qPCR Kit",
-      "ma": "1drop Inc",
-      "sc": "2021-05-24T18:33:59.7247166+03:00",
-      "dr": "2021-05-25T18:33:59.7315849+03:00",
+      "nm": "Roche LightCycler qPCR",
+      "ma": "",
+      "sc": "2021-05-10T10:27:15Z",
+      "dr": "2021-05-11T12:27:15Z",
       "tr": "260415000",
-      "tc": "E.GULBJA LABORATORIJA",
-      "co": "LV",
-      "is": "Nacionālais veselības dienests",
-      "ci": "urn:uvci:01:lv:10807843F94AEE0EE5093FBC254BD813P"
+      "tc": "Policlinico Umberto I",
+      "co": "IT",
+      "is": "IT",
+      "ci": "01IT0BFC9866D3854EAC82C21654B6F6DE32#1"
     }
   ]
 }

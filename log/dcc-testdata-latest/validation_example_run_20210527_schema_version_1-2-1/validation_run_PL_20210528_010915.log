@@ -1,4 +1,4 @@
-../../data/dgc-testdata-latest/PL/2DCode/raw/7.json (Schema version tag: 1.0.0)
+../../data/dcc-testdata-latest/PL/2DCode/raw/7.json (Schema version tag: 1.0.0)
 VALIDATION ERRORS FOUND:
 {
   "ver": "1.0.0",
@@ -269,7 +269,7 @@ VALIDATION ERRORS FOUND:
     "message": "must match exactly one schema in oneOf"
   }
 ]
-../../data/dgc-testdata-latest/PL/2DCode/raw/9.json (Schema version tag: 1.0.0)
+../../data/dcc-testdata-latest/PL/2DCode/raw/9.json (Schema version tag: 1.0.0)
 VALIDATION ERRORS FOUND:
 {
   "ver": "1.0.0",
