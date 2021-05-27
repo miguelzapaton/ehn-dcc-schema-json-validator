@@ -29,13 +29,13 @@ Key requirements for a successful implementation of this proposal:
 
 #### /dcc-testdata-latest
 
-The test data comes from the [DCC Test Data Repository](https://github.com/eu-digital-green-certificates/dcc-testdata)
+The test data comes from the [DCC Test Data Repository](https://github.com/eu-digital-green-certificates/dgc-testdata)
 
 Feel free to update the test data regularly.
 
 #### /examples-latest
 
-The test data comes from the [Digital Green Certificate Schema](https://github.com/ehn-digital-green-development/ehn-dcc-schema) project.
+The test data comes from the [Digital Covid Certificate Schema](https://github.com/ehn-digital-green-development/ehn-dgc-schema) project.
 
 Feel free to use your own examples.
 
@@ -59,12 +59,12 @@ It is used for all further validations and could be considered as "least common 
 #### /structure/jsonschema
 
 This folder contains the different official release versions of the 
- [Digital Green Certificate Schema](https://github.com/ehn-digital-green-development/ehn-dcc-schema).
+ [Digital Covid Certificate Schema](https://github.com/ehn-digital-green-development/ehn-dgc-schema).
 
 #### /taxonomy/valuesets-latest
 
 This folder contains the DCC taxonomy in form of "ValueSets" from the
-[Digital Green Certificate Schema](https://github.com/ehn-digital-green-development/ehn-dcc-schema) repository.
+[Digital Covid Certificate Schema](https://github.com/ehn-digital-green-development/ehn-dgc-schema) repository.
 
 
 ***
