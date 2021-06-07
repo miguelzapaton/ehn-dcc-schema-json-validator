@@ -6,6 +6,7 @@
   "scripts": {
     "updater": "cd src/js && node updater.js",
     "validator": "cd src/js && node validator.js",
+    "sctester": "cd src/js && node schemacompatibilitytester.js",
     "cleaner": "cd src/js && node cleaner.js"
   },
   "dependencies": {

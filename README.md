@@ -106,7 +106,13 @@ $ npm run validator
 
 4.) Check the validation log files under /test
 
+---
 
+To check if the test data validation results vary when different schema versions are used, there's the "Schema Compatibility Tester" utility:
+
+```
+$ npm run sctester
+```
 
 ### /log
 
