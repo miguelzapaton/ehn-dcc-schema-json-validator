@@ -1,0 +1,766 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://id.uvci.eu/DCC.Values.country-2-codes.schema.json",
+  "title": "EU DCC",
+  "description": "EU Digital Covid Certificate",
+  "$comment": "PROOF OF CONCEPT - JSON Schema for values",
+  "type": "object",
+  "$defs": {
+    "country-2-codes": {
+      "type": "array",
+      "title": "country-2-codes",
+      "items": {
+        "type": "string",
+        "oneOf": [
+          {
+            "const": "AD"
+          },
+          {
+            "const": "AE"
+          },
+          {
+            "const": "AF"
+          },
+          {
+            "const": "AG"
+          },
+          {
+            "const": "AI"
+          },
+          {
+            "const": "AL"
+          },
+          {
+            "const": "AM"
+          },
+          {
+            "const": "AO"
+          },
+          {
+            "const": "AQ"
+          },
+          {
+            "const": "AR"
+          },
+          {
+            "const": "AS"
+          },
+          {
+            "const": "AT"
+          },
+          {
+            "const": "AU"
+          },
+          {
+            "const": "AW"
+          },
+          {
+            "const": "AX"
+          },
+          {
+            "const": "AZ"
+          },
+          {
+            "const": "BA"
+          },
+          {
+            "const": "BB"
+          },
+          {
+            "const": "BD"
+          },
+          {
+            "const": "BE"
+          },
+          {
+            "const": "BF"
+          },
+          {
+            "const": "BG"
+          },
+          {
+            "const": "BH"
+          },
+          {
+            "const": "BI"
+          },
+          {
+            "const": "BJ"
+          },
+          {
+            "const": "BL"
+          },
+          {
+            "const": "BM"
+          },
+          {
+            "const": "BN"
+          },
+          {
+            "const": "BO"
+          },
+          {
+            "const": "BQ"
+          },
+          {
+            "const": "BR"
+          },
+          {
+            "const": "BS"
+          },
+          {
+            "const": "BT"
+          },
+          {
+            "const": "BV"
+          },
+          {
+            "const": "BW"
+          },
+          {
+            "const": "BY"
+          },
+          {
+            "const": "BZ"
+          },
+          {
+            "const": "CA"
+          },
+          {
+            "const": "CC"
+          },
+          {
+            "const": "CD"
+          },
+          {
+            "const": "CF"
+          },
+          {
+            "const": "CG"
+          },
+          {
+            "const": "CH"
+          },
+          {
+            "const": "CI"
+          },
+          {
+            "const": "CK"
+          },
+          {
+            "const": "CL"
+          },
+          {
+            "const": "CM"
+          },
+          {
+            "const": "CN"
+          },
+          {
+            "const": "CO"
+          },
+          {
+            "const": "CR"
+          },
+          {
+            "const": "CU"
+          },
+          {
+            "const": "CV"
+          },
+          {
+            "const": "CW"
+          },
+          {
+            "const": "CX"
+          },
+          {
+            "const": "CY"
+          },
+          {
+            "const": "CZ"
+          },
+          {
+            "const": "DE"
+          },
+          {
+            "const": "DJ"
+          },
+          {
+            "const": "DK"
+          },
+          {
+            "const": "DM"
+          },
+          {
+            "const": "DO"
+          },
+          {
+            "const": "DZ"
+          },
+          {
+            "const": "EC"
+          },
+          {
+            "const": "EE"
+          },
+          {
+            "const": "EG"
+          },
+          {
+            "const": "EH"
+          },
+          {
+            "const": "ER"
+          },
+          {
+            "const": "ES"
+          },
+          {
+            "const": "ET"
+          },
+          {
+            "const": "FI"
+          },
+          {
+            "const": "FJ"
+          },
+          {
+            "const": "FK"
+          },
+          {
+            "const": "FM"
+          },
+          {
+            "const": "FO"
+          },
+          {
+            "const": "FR"
+          },
+          {
+            "const": "GA"
+          },
+          {
+            "const": "GB"
+          },
+          {
+            "const": "GD"
+          },
+          {
+            "const": "GE"
+          },
+          {
+            "const": "GF"
+          },
+          {
+            "const": "GG"
+          },
+          {
+            "const": "GH"
+          },
+          {
+            "const": "GI"
+          },
+          {
+            "const": "GL"
+          },
+          {
+            "const": "GM"
+          },
+          {
+            "const": "GN"
+          },
+          {
+            "const": "GP"
+          },
+          {
+            "const": "GQ"
+          },
+          {
+            "const": "GR"
+          },
+          {
+            "const": "GS"
+          },
+          {
+            "const": "GT"
+          },
+          {
+            "const": "GU"
+          },
+          {
+            "const": "GW"
+          },
+          {
+            "const": "GY"
+          },
+          {
+            "const": "HK"
+          },
+          {
+            "const": "HM"
+          },
+          {
+            "const": "HN"
+          },
+          {
+            "const": "HR"
+          },
+          {
+            "const": "HT"
+          },
+          {
+            "const": "HU"
+          },
+          {
+            "const": "ID"
+          },
+          {
+            "const": "IE"
+          },
+          {
+            "const": "IL"
+          },
+          {
+            "const": "IM"
+          },
+          {
+            "const": "IN"
+          },
+          {
+            "const": "IO"
+          },
+          {
+            "const": "IQ"
+          },
+          {
+            "const": "IR"
+          },
+          {
+            "const": "IS"
+          },
+          {
+            "const": "IT"
+          },
+          {
+            "const": "JE"
+          },
+          {
+            "const": "JM"
+          },
+          {
+            "const": "JO"
+          },
+          {
+            "const": "JP"
+          },
+          {
+            "const": "KE"
+          },
+          {
+            "const": "KG"
+          },
+          {
+            "const": "KH"
+          },
+          {
+            "const": "KI"
+          },
+          {
+            "const": "KM"
+          },
+          {
+            "const": "KN"
+          },
+          {
+            "const": "KP"
+          },
+          {
+            "const": "KR"
+          },
+          {
+            "const": "KW"
+          },
+          {
+            "const": "KY"
+          },
+          {
+            "const": "KZ"
+          },
+          {
+            "const": "LA"
+          },
+          {
+            "const": "LB"
+          },
+          {
+            "const": "LC"
+          },
+          {
+            "const": "LI"
+          },
+          {
+            "const": "LK"
+          },
+          {
+            "const": "LR"
+          },
+          {
+            "const": "LS"
+          },
+          {
+            "const": "LT"
+          },
+          {
+            "const": "LU"
+          },
+          {
+            "const": "LV"
+          },
+          {
+            "const": "LY"
+          },
+          {
+            "const": "MA"
+          },
+          {
+            "const": "MC"
+          },
+          {
+            "const": "MD"
+          },
+          {
+            "const": "ME"
+          },
+          {
+            "const": "MF"
+          },
+          {
+            "const": "MG"
+          },
+          {
+            "const": "MH"
+          },
+          {
+            "const": "MK"
+          },
+          {
+            "const": "ML"
+          },
+          {
+            "const": "MM"
+          },
+          {
+            "const": "MN"
+          },
+          {
+            "const": "MO"
+          },
+          {
+            "const": "MP"
+          },
+          {
+            "const": "MQ"
+          },
+          {
+            "const": "MR"
+          },
+          {
+            "const": "MS"
+          },
+          {
+            "const": "MT"
+          },
+          {
+            "const": "MU"
+          },
+          {
+            "const": "MV"
+          },
+          {
+            "const": "MW"
+          },
+          {
+            "const": "MX"
+          },
+          {
+            "const": "MY"
+          },
+          {
+            "const": "MZ"
+          },
+          {
+            "const": "NA"
+          },
+          {
+            "const": "NC"
+          },
+          {
+            "const": "NE"
+          },
+          {
+            "const": "NF"
+          },
+          {
+            "const": "NG"
+          },
+          {
+            "const": "NI"
+          },
+          {
+            "const": "NL"
+          },
+          {
+            "const": "NO"
+          },
+          {
+            "const": "NP"
+          },
+          {
+            "const": "NR"
+          },
+          {
+            "const": "NU"
+          },
+          {
+            "const": "NZ"
+          },
+          {
+            "const": "OM"
+          },
+          {
+            "const": "PA"
+          },
+          {
+            "const": "PE"
+          },
+          {
+            "const": "PF"
+          },
+          {
+            "const": "PG"
+          },
+          {
+            "const": "PH"
+          },
+          {
+            "const": "PK"
+          },
+          {
+            "const": "PL"
+          },
+          {
+            "const": "PM"
+          },
+          {
+            "const": "PN"
+          },
+          {
+            "const": "PR"
+          },
+          {
+            "const": "PS"
+          },
+          {
+            "const": "PT"
+          },
+          {
+            "const": "PW"
+          },
+          {
+            "const": "PY"
+          },
+          {
+            "const": "QA"
+          },
+          {
+            "const": "RE"
+          },
+          {
+            "const": "RO"
+          },
+          {
+            "const": "RS"
+          },
+          {
+            "const": "RU"
+          },
+          {
+            "const": "RW"
+          },
+          {
+            "const": "SA"
+          },
+          {
+            "const": "SB"
+          },
+          {
+            "const": "SC"
+          },
+          {
+            "const": "SD"
+          },
+          {
+            "const": "SE"
+          },
+          {
+            "const": "SG"
+          },
+          {
+            "const": "SH"
+          },
+          {
+            "const": "SI"
+          },
+          {
+            "const": "SJ"
+          },
+          {
+            "const": "SK"
+          },
+          {
+            "const": "SL"
+          },
+          {
+            "const": "SM"
+          },
+          {
+            "const": "SN"
+          },
+          {
+            "const": "SO"
+          },
+          {
+            "const": "SR"
+          },
+          {
+            "const": "SS"
+          },
+          {
+            "const": "ST"
+          },
+          {
+            "const": "SV"
+          },
+          {
+            "const": "SX"
+          },
+          {
+            "const": "SY"
+          },
+          {
+            "const": "SZ"
+          },
+          {
+            "const": "TC"
+          },
+          {
+            "const": "TD"
+          },
+          {
+            "const": "TF"
+          },
+          {
+            "const": "TG"
+          },
+          {
+            "const": "TH"
+          },
+          {
+            "const": "TJ"
+          },
+          {
+            "const": "TK"
+          },
+          {
+            "const": "TL"
+          },
+          {
+            "const": "TM"
+          },
+          {
+            "const": "TN"
+          },
+          {
+            "const": "TO"
+          },
+          {
+            "const": "TR"
+          },
+          {
+            "const": "TT"
+          },
+          {
+            "const": "TV"
+          },
+          {
+            "const": "TW"
+          },
+          {
+            "const": "TZ"
+          },
+          {
+            "const": "UA"
+          },
+          {
+            "const": "UG"
+          },
+          {
+            "const": "UM"
+          },
+          {
+            "const": "US"
+          },
+          {
+            "const": "UY"
+          },
+          {
+            "const": "UZ"
+          },
+          {
+            "const": "VA"
+          },
+          {
+            "const": "VC"
+          },
+          {
+            "const": "VE"
+          },
+          {
+            "const": "VG"
+          },
+          {
+            "const": "VI"
+          },
+          {
+            "const": "VN"
+          },
+          {
+            "const": "VU"
+          },
+          {
+            "const": "WF"
+          },
+          {
+            "const": "WS"
+          },
+          {
+            "const": "YE"
+          },
+          {
+            "const": "YT"
+          },
+          {
+            "const": "ZA"
+          },
+          {
+            "const": "ZM"
+          },
+          {
+            "const": "ZW"
+          }
+        ]
+      }
+    }
+  }
+}
