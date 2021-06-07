@@ -12,6 +12,22 @@ async function testParseDate () {
 
   console.log('2012 -> ' + date2.toISOString());
 
+  try {
+
+    const date3 = new Date('2012-00');
+    // parse OK - JS...
+
+    console.log('2012-00 -> ' + date3.toISOString());
+    // error thrown here!?
+
+  } catch (error) {
+
+    console.log(error);
+
+  }
+
+
+
   console.log('END testParseDate()');
 
 }

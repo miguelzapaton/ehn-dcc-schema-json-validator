@@ -123,9 +123,9 @@ async function schemaCompatibilityTestDCCTestDataJSON() {
           log.write(file + ' (Schema version tag: ' + version + ')\n');
           fs.appendFileSync('../../log/dcc-testdata-latest/schemacompatibilitytest_run_' + timestamp + '/schemacompatibilitytest_run_' + countrycode + '_' + timestamp + '.log', file + ' (Schema version tag: ' + version + ')\n');
 
-          console.log(testvalidresult);
-          log.write(JSON.stringify(testvalidresult) + '\n');
-          fs.appendFileSync('../../log/dcc-testdata-latest/schemacompatibilitytest_run_' + timestamp + '/schemacompatibilitytest_run_' + countrycode + '_' + timestamp + '.log', JSON.stringify(testvalidresult) + '\n');
+          console.log(JSON.stringify(testschemaversions) + ' valid: ' + JSON.stringify(testvalidresult));
+          log.write(JSON.stringify(testschemaversions) + ' valid: ' + JSON.stringify(testvalidresult) + '\n');
+          fs.appendFileSync('../../log/dcc-testdata-latest/schemacompatibilitytest_run_' + timestamp + '/schemacompatibilitytest_run_' + countrycode + '_' + timestamp + '.log', JSON.stringify(testschemaversions) + ' valid: ' + JSON.stringify(testvalidresult) + '\n');
 
         }
 
