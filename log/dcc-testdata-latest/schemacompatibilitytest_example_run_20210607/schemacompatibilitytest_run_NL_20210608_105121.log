@@ -1,0 +1,60 @@
+../../data/dcc-testdata-latest/NL/2DCode/raw/042-NL-vaccination.json (Schema version tag: 1.0.0)
+["1.0.1","1.1.0","1.2.0","1.2.1","main"] valid: [false,true,true,true,true]
+../../data/dcc-testdata-latest/NL/2DCode/raw/043-NL-vaccination.json (Schema version tag: 1.0.0)
+["1.0.1","1.1.0","1.2.0","1.2.1","main"] valid: [false,true,true,true,true]
+../../data/dcc-testdata-latest/NL/2DCode/raw/049-NL-vaccination.json (Schema version tag: 1.0.0)
+["1.0.1","1.1.0","1.2.0","1.2.1","main"] valid: [false,true,true,true,true]
+../../data/dcc-testdata-latest/NL/2DCode/raw/062-NL-vaccination.json (Schema version tag: 1.0.0)
+["1.0.1","1.1.0","1.2.0","1.2.1","main"] valid: [false,true,true,true,true]
+../../data/dcc-testdata-latest/NL/2DCode/raw/086-NL-vaccination.json (Schema version tag: 1.0.0)
+["1.0.1","1.1.0","1.2.0","1.2.1","main"] valid: [false,true,true,true,true]
+../../data/dcc-testdata-latest/NL/2DCode/raw/095-NL-recovery.json (Schema version tag: 1.0.0)
+["1.0.1","1.1.0","1.2.0","1.2.1","main"] valid: [false,true,true,true,true]
+../../data/dcc-testdata-latest/NL/2DCode/raw/100-NL-recovery.json (Schema version tag: 1.0.0)
+["1.0.1","1.1.0","1.2.0","1.2.1","main"] valid: [false,true,true,true,true]
+../../data/dcc-testdata-latest/NL/2DCode/raw/101-NL-recovery.json (Schema version tag: 1.0.0)
+["1.0.1","1.1.0","1.2.0","1.2.1","main"] valid: [false,true,true,true,true]
+../../data/dcc-testdata-latest/NL/2DCode/raw/102-NL-recovery.json (Schema version tag: 1.0.0)
+["1.0.1","1.1.0","1.2.0","1.2.1","main"] valid: [false,true,true,true,true]
+../../data/dcc-testdata-latest/NL/2DCode/raw/107-NL-recovery.json (Schema version tag: 1.0.0)
+["1.0.1","1.1.0","1.2.0","1.2.1","main"] valid: [false,true,true,true,true]
+../../data/dcc-testdata-latest/NL/2DCode/raw/108-NL-recovery.json (Schema version tag: 1.0.0)
+["1.0.1","1.1.0","1.2.0","1.2.1","main"] valid: [false,true,true,true,true]
+../../data/dcc-testdata-latest/NL/2DCode/raw/111-NL-recovery.json (Schema version tag: 1.0.0)
+["1.0.1","1.1.0","1.2.0","1.2.1","main"] valid: [false,true,true,true,true]
+../../data/dcc-testdata-latest/NL/2DCode/raw/112-NL-recovery.json (Schema version tag: 1.0.0)
+["1.0.1","1.1.0","1.2.0","1.2.1","main"] valid: [false,true,true,true,true]
+../../data/dcc-testdata-latest/NL/2DCode/raw/113-NL-recovery.json (Schema version tag: 1.0.0)
+["1.0.1","1.1.0","1.2.0","1.2.1","main"] valid: [false,true,true,true,true]
+../../data/dcc-testdata-latest/NL/2DCode/raw/116-NL-recovery.json (Schema version tag: 1.0.0)
+["1.0.1","1.1.0","1.2.0","1.2.1","main"] valid: [false,true,true,true,true]
+../../data/dcc-testdata-latest/NL/2DCode/raw/117-NL-recovery.json (Schema version tag: 1.0.0)
+["1.0.1","1.1.0","1.2.0","1.2.1","main"] valid: [false,true,true,true,true]
+../../data/dcc-testdata-latest/NL/2DCode/raw/121-NL-recovery.json (Schema version tag: 1.0.0)
+["1.0.1","1.1.0","1.2.0","1.2.1","main"] valid: [false,true,true,true,true]
+../../data/dcc-testdata-latest/NL/2DCode/raw/122-NL-recovery.json (Schema version tag: 1.0.0)
+["1.0.1","1.1.0","1.2.0","1.2.1","main"] valid: [false,true,true,true,true]
+../../data/dcc-testdata-latest/NL/2DCode/raw/126-NL-recovery.json (Schema version tag: 1.0.0)
+["1.0.1","1.1.0","1.2.0","1.2.1","main"] valid: [false,true,true,true,true]
+../../data/dcc-testdata-latest/NL/2DCode/raw/127-NL-recovery.json (Schema version tag: 1.0.0)
+["1.0.1","1.1.0","1.2.0","1.2.1","main"] valid: [false,true,true,true,true]
+../../data/dcc-testdata-latest/NL/2DCode/raw/128-NL-recovery.json (Schema version tag: 1.0.0)
+["1.0.1","1.1.0","1.2.0","1.2.1","main"] valid: [false,true,true,true,true]
+../../data/dcc-testdata-latest/NL/2DCode/raw/133-NL-recovery.json (Schema version tag: 1.0.0)
+["1.0.1","1.1.0","1.2.0","1.2.1","main"] valid: [false,true,true,true,true]
+../../data/dcc-testdata-latest/NL/2DCode/raw/134-NL-recovery.json (Schema version tag: 1.0.0)
+["1.0.1","1.1.0","1.2.0","1.2.1","main"] valid: [false,true,true,true,true]
+../../data/dcc-testdata-latest/NL/2DCode/raw/135-NL-recovery.json (Schema version tag: 1.0.0)
+["1.0.1","1.1.0","1.2.0","1.2.1","main"] valid: [false,true,true,true,true]
+../../data/dcc-testdata-latest/NL/2DCode/raw/141-NL-recovery.json (Schema version tag: 1.0.0)
+["1.0.1","1.1.0","1.2.0","1.2.1","main"] valid: [false,true,true,true,true]
+../../data/dcc-testdata-latest/NL/2DCode/raw/238-NL-recovery+vaccination.json (Schema version tag: 1.0.0)
+["1.0.1","1.1.0","1.2.0","1.2.1","main"] valid: [false,true,true,true,true]
+../../data/dcc-testdata-latest/NL/2DCode/raw/251-NL-recovery+vaccination.json (Schema version tag: 1.0.0)
+["1.0.1","1.1.0","1.2.0","1.2.1","main"] valid: [false,true,true,true,true]
+../../data/dcc-testdata-latest/NL/2DCode/raw/270-NL-recovery+vaccination.json (Schema version tag: 1.0.0)
+["1.0.1","1.1.0","1.2.0","1.2.1","main"] valid: [false,true,true,true,true]
+../../data/dcc-testdata-latest/NL/2DCode/raw/275-NL-recovery+vaccination.json (Schema version tag: 1.0.0)
+["1.0.1","1.1.0","1.2.0","1.2.1","main"] valid: [false,true,true,true,true]
+../../data/dcc-testdata-latest/NL/2DCode/raw/276-NL-recovery+vaccination.json (Schema version tag: 1.0.0)
+["1.0.1","1.1.0","1.2.0","1.2.1","main"] valid: [false,true,true,true,true]

@@ -1,0 +1,2 @@
+../../data/dcc-testdata-latest/PL/2DCode/raw/8.json (Schema version tag: 1.0.0)
+["1.0.1","1.1.0","1.2.0","1.2.1","main"] valid: [true,true,true,true,false]
