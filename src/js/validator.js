@@ -5,7 +5,7 @@ import addFormats from 'ajv-formats';
 
 const latestschemarevisionmap = new Map(
   [
-      ['1', '1.2.1']
+      ['1', 'rc2-1.3.0']
     ]
 );
 

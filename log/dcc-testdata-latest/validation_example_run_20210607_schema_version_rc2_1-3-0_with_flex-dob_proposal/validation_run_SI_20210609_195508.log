@@ -1,0 +1,76 @@
+../../data/dcc-testdata-latest/SI/2DCode/raw/2.json (Schema version tag: 1.0.0)
+VALIDATION ERRORS FOUND:
+{
+  "ver": "1.0.0",
+  "nam": {
+    "fn": "Vzorčekš",
+    "fnt": "VZORCEKS",
+    "gn": "Špelca",
+    "gnt": "SPELCA"
+  },
+  "dob": "1958-11-11",
+  "v": [
+    {
+      "tg": "840539006",
+      "vp": "J07BX03",
+      "mp": "EU/1/21/1529",
+      "ma": "ORG-100030215",
+      "dn": 1,
+      "sd": 2,
+      "dt": "2021-03-06",
+      "co": "SI",
+      "is": "Nacionalni inštitut za javno zdravje",
+      "ci": "urn:uvci:01:SI:NIJZ00000000468"
+    },
+    {
+      "tg": "840539006",
+      "vp": "J07BX03",
+      "mp": "EU/1/21/1529",
+      "ma": "ORG-100030215",
+      "dn": 2,
+      "sd": 2,
+      "dt": "2021-05-11",
+      "co": "SI",
+      "is": "Nacionalni inštitut za javno zdravje",
+      "ci": "urn:uvci:01:SI:NIJZ00000000468"
+    }
+  ]
+}
+[
+  {
+    "instancePath": "/v",
+    "schemaPath": "#/allOf/1/oneOf/0/properties/v/maxItems",
+    "keyword": "maxItems",
+    "params": {
+      "limit": 1
+    },
+    "message": "must NOT have more than 1 items"
+  },
+  {
+    "instancePath": "",
+    "schemaPath": "#/allOf/1/oneOf/1/required",
+    "keyword": "required",
+    "params": {
+      "missingProperty": "t"
+    },
+    "message": "must have required property 't'"
+  },
+  {
+    "instancePath": "",
+    "schemaPath": "#/allOf/1/oneOf/2/required",
+    "keyword": "required",
+    "params": {
+      "missingProperty": "r"
+    },
+    "message": "must have required property 'r'"
+  },
+  {
+    "instancePath": "",
+    "schemaPath": "#/allOf/1/oneOf",
+    "keyword": "oneOf",
+    "params": {
+      "passingSchemas": null
+    },
+    "message": "must match exactly one schema in oneOf"
+  }
+]

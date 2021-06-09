@@ -1,0 +1,2892 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://id.uvci.eu/DCC.schema.json",
+  "title": "EU DCC",
+  "description": "EU Digital Covid Certificate",
+  "$comment": "Schema version 1.3.0",
+  "type": "object",
+  "oneOf": [
+    {
+      "required": [
+        "ver",
+        "nam",
+        "dob",
+        "v"
+      ]
+    },
+    {
+      "required": [
+        "ver",
+        "nam",
+        "dob",
+        "t"
+      ]
+    },
+    {
+      "required": [
+        "ver",
+        "nam",
+        "dob",
+        "r"
+      ]
+    }
+  ],
+  "properties": {
+    "ver": {
+      "title": "Schema version",
+      "description": "Version of the schema, according to Semantic versioning (ISO, https://semver.org/ version 2.0.0 or newer)",
+      "type": "string",
+      "pattern": "^\\d+.\\d+.\\d+$",
+      "examples": [
+        "1.3.0"
+      ]
+    },
+    "nam": {
+      "description": "Surname(s), given name(s) - in that order",
+      "required": [
+        "fnt"
+      ],
+      "type": "object",
+      "properties": {
+        "fn": {
+          "title": "Surname",
+          "description": "The surname or primary name(s) of the person addressed in the certificate",
+          "type": "string",
+          "maxLength": 80,
+          "examples": [
+            "d'Červenková Panklová"
+          ]
+        },
+        "fnt": {
+          "title": "Standardised surname",
+          "description": "The surname(s) of the person, transliterated ICAO 9303",
+          "type": "string",
+          "pattern": "^[A-Z<]*$",
+          "maxLength": 80,
+          "examples": [
+            "DCERVENKOVA<PANKLOVA"
+          ]
+        },
+        "gn": {
+          "title": "Forename",
+          "description": "The forename(s) of the person addressed in the certificate",
+          "type": "string",
+          "maxLength": 80,
+          "examples": [
+            "Jiřina-Maria Alena"
+          ]
+        },
+        "gnt": {
+          "title": "Standardised forename",
+          "description": "The forename(s) of the person, transliterated ICAO 9303",
+          "type": "string",
+          "pattern": "^[A-Z<]*$",
+          "maxLength": 80,
+          "examples": [
+            "JIRINA<MARIA<ALENA"
+          ]
+        }
+      }
+    },
+    "dob": {
+      "title": "Date of birth",
+      "description": "Date of Birth of the person addressed in the DCC. ISO 8601 date format restricted to range 1900-2099",
+      "type": "string",
+      "pattern": "^(19|20)\\d\\d(-\\d\\d){0,2}$",
+      "examples": [
+        "1979-04-14",
+        "1950",
+        "1901-08"
+      ]
+    },
+    "v": {
+      "description": "Vaccination Group",
+      "type": "array",
+      "items": {
+        "description": "Vaccination Entry",
+        "required": [
+          "tg",
+          "vp",
+          "mp",
+          "ma",
+          "dn",
+          "sd",
+          "dt",
+          "co",
+          "is",
+          "ci"
+        ],
+        "type": "object",
+        "properties": {
+          "tg": {
+            "description": "disease or agent targeted",
+            "type": "string",
+            "oneOf": [
+              {
+                "const": "840539006"
+              }
+            ]
+          },
+          "vp": {
+            "description": "vaccine or prophylaxis",
+            "type": "string",
+            "oneOf": [
+              {
+                "const": "1119305005"
+              },
+              {
+                "const": "1119349007"
+              },
+              {
+                "const": "J07BX03"
+              }
+            ]
+          },
+          "mp": {
+            "description": "vaccine medicinal product",
+            "type": "string",
+            "oneOf": [
+              {
+                "const": "EU/1/20/1528"
+              },
+              {
+                "const": "EU/1/20/1507"
+              },
+              {
+                "const": "EU/1/21/1529"
+              },
+              {
+                "const": "EU/1/20/1525"
+              },
+              {
+                "const": "CVnCoV"
+              },
+              {
+                "const": "Sputnik-V"
+              },
+              {
+                "const": "Convidecia"
+              },
+              {
+                "const": "EpiVacCorona"
+              },
+              {
+                "const": "BBIBP-CorV"
+              },
+              {
+                "const": "Inactivated-SARS-CoV-2-Vero-Cell"
+              },
+              {
+                "const": "CoronaVac"
+              },
+              {
+                "const": "Covaxin"
+              }
+            ]
+          },
+          "ma": {
+            "description": "Marketing Authorization Holder - if no MAH present, then manufacturer",
+            "type": "string",
+            "oneOf": [
+              {
+                "const": "ORG-100001699"
+              },
+              {
+                "const": "ORG-100030215"
+              },
+              {
+                "const": "ORG-100001417"
+              },
+              {
+                "const": "ORG-100031184"
+              },
+              {
+                "const": "ORG-100006270"
+              },
+              {
+                "const": "ORG-100013793"
+              },
+              {
+                "const": "ORG-100020693"
+              },
+              {
+                "const": "ORG-100010771"
+              },
+              {
+                "const": "ORG-100024420"
+              },
+              {
+                "const": "ORG-100032020"
+              },
+              {
+                "const": "Gamaleya-Research-Institute"
+              },
+              {
+                "const": "Vector-Institute"
+              },
+              {
+                "const": "Sinovac-Biotech"
+              },
+              {
+                "const": "Bharat-Biotech"
+              }
+            ]
+          },
+          "dn": {
+            "description": "Dose Number",
+            "type": "integer",
+            "minimum": 1
+          },
+          "sd": {
+            "description": "Total Series of Doses",
+            "type": "integer",
+            "minimum": 1
+          },
+          "dt": {
+            "description": "Date of Vaccination",
+            "type": "string",
+            "format": "date",
+            "$comment": "ISO8601 full-date only"
+          },
+          "co": {
+            "description": "Country of Vaccination",
+            "type": "string",
+            "pattern": "[A-Z]{1,10}",
+            "oneOf": [
+              {
+                "const": "AD"
+              },
+              {
+                "const": "AE"
+              },
+              {
+                "const": "AF"
+              },
+              {
+                "const": "AG"
+              },
+              {
+                "const": "AI"
+              },
+              {
+                "const": "AL"
+              },
+              {
+                "const": "AM"
+              },
+              {
+                "const": "AO"
+              },
+              {
+                "const": "AQ"
+              },
+              {
+                "const": "AR"
+              },
+              {
+                "const": "AS"
+              },
+              {
+                "const": "AT"
+              },
+              {
+                "const": "AU"
+              },
+              {
+                "const": "AW"
+              },
+              {
+                "const": "AX"
+              },
+              {
+                "const": "AZ"
+              },
+              {
+                "const": "BA"
+              },
+              {
+                "const": "BB"
+              },
+              {
+                "const": "BD"
+              },
+              {
+                "const": "BE"
+              },
+              {
+                "const": "BF"
+              },
+              {
+                "const": "BG"
+              },
+              {
+                "const": "BH"
+              },
+              {
+                "const": "BI"
+              },
+              {
+                "const": "BJ"
+              },
+              {
+                "const": "BL"
+              },
+              {
+                "const": "BM"
+              },
+              {
+                "const": "BN"
+              },
+              {
+                "const": "BO"
+              },
+              {
+                "const": "BQ"
+              },
+              {
+                "const": "BR"
+              },
+              {
+                "const": "BS"
+              },
+              {
+                "const": "BT"
+              },
+              {
+                "const": "BV"
+              },
+              {
+                "const": "BW"
+              },
+              {
+                "const": "BY"
+              },
+              {
+                "const": "BZ"
+              },
+              {
+                "const": "CA"
+              },
+              {
+                "const": "CC"
+              },
+              {
+                "const": "CD"
+              },
+              {
+                "const": "CF"
+              },
+              {
+                "const": "CG"
+              },
+              {
+                "const": "CH"
+              },
+              {
+                "const": "CI"
+              },
+              {
+                "const": "CK"
+              },
+              {
+                "const": "CL"
+              },
+              {
+                "const": "CM"
+              },
+              {
+                "const": "CN"
+              },
+              {
+                "const": "CO"
+              },
+              {
+                "const": "CR"
+              },
+              {
+                "const": "CU"
+              },
+              {
+                "const": "CV"
+              },
+              {
+                "const": "CW"
+              },
+              {
+                "const": "CX"
+              },
+              {
+                "const": "CY"
+              },
+              {
+                "const": "CZ"
+              },
+              {
+                "const": "DE"
+              },
+              {
+                "const": "DJ"
+              },
+              {
+                "const": "DK"
+              },
+              {
+                "const": "DM"
+              },
+              {
+                "const": "DO"
+              },
+              {
+                "const": "DZ"
+              },
+              {
+                "const": "EC"
+              },
+              {
+                "const": "EE"
+              },
+              {
+                "const": "EG"
+              },
+              {
+                "const": "EH"
+              },
+              {
+                "const": "ER"
+              },
+              {
+                "const": "ES"
+              },
+              {
+                "const": "ET"
+              },
+              {
+                "const": "FI"
+              },
+              {
+                "const": "FJ"
+              },
+              {
+                "const": "FK"
+              },
+              {
+                "const": "FM"
+              },
+              {
+                "const": "FO"
+              },
+              {
+                "const": "FR"
+              },
+              {
+                "const": "GA"
+              },
+              {
+                "const": "GB"
+              },
+              {
+                "const": "GD"
+              },
+              {
+                "const": "GE"
+              },
+              {
+                "const": "GF"
+              },
+              {
+                "const": "GG"
+              },
+              {
+                "const": "GH"
+              },
+              {
+                "const": "GI"
+              },
+              {
+                "const": "GL"
+              },
+              {
+                "const": "GM"
+              },
+              {
+                "const": "GN"
+              },
+              {
+                "const": "GP"
+              },
+              {
+                "const": "GQ"
+              },
+              {
+                "const": "GR"
+              },
+              {
+                "const": "GS"
+              },
+              {
+                "const": "GT"
+              },
+              {
+                "const": "GU"
+              },
+              {
+                "const": "GW"
+              },
+              {
+                "const": "GY"
+              },
+              {
+                "const": "HK"
+              },
+              {
+                "const": "HM"
+              },
+              {
+                "const": "HN"
+              },
+              {
+                "const": "HR"
+              },
+              {
+                "const": "HT"
+              },
+              {
+                "const": "HU"
+              },
+              {
+                "const": "ID"
+              },
+              {
+                "const": "IE"
+              },
+              {
+                "const": "IL"
+              },
+              {
+                "const": "IM"
+              },
+              {
+                "const": "IN"
+              },
+              {
+                "const": "IO"
+              },
+              {
+                "const": "IQ"
+              },
+              {
+                "const": "IR"
+              },
+              {
+                "const": "IS"
+              },
+              {
+                "const": "IT"
+              },
+              {
+                "const": "JE"
+              },
+              {
+                "const": "JM"
+              },
+              {
+                "const": "JO"
+              },
+              {
+                "const": "JP"
+              },
+              {
+                "const": "KE"
+              },
+              {
+                "const": "KG"
+              },
+              {
+                "const": "KH"
+              },
+              {
+                "const": "KI"
+              },
+              {
+                "const": "KM"
+              },
+              {
+                "const": "KN"
+              },
+              {
+                "const": "KP"
+              },
+              {
+                "const": "KR"
+              },
+              {
+                "const": "KW"
+              },
+              {
+                "const": "KY"
+              },
+              {
+                "const": "KZ"
+              },
+              {
+                "const": "LA"
+              },
+              {
+                "const": "LB"
+              },
+              {
+                "const": "LC"
+              },
+              {
+                "const": "LI"
+              },
+              {
+                "const": "LK"
+              },
+              {
+                "const": "LR"
+              },
+              {
+                "const": "LS"
+              },
+              {
+                "const": "LT"
+              },
+              {
+                "const": "LU"
+              },
+              {
+                "const": "LV"
+              },
+              {
+                "const": "LY"
+              },
+              {
+                "const": "MA"
+              },
+              {
+                "const": "MC"
+              },
+              {
+                "const": "MD"
+              },
+              {
+                "const": "ME"
+              },
+              {
+                "const": "MF"
+              },
+              {
+                "const": "MG"
+              },
+              {
+                "const": "MH"
+              },
+              {
+                "const": "MK"
+              },
+              {
+                "const": "ML"
+              },
+              {
+                "const": "MM"
+              },
+              {
+                "const": "MN"
+              },
+              {
+                "const": "MO"
+              },
+              {
+                "const": "MP"
+              },
+              {
+                "const": "MQ"
+              },
+              {
+                "const": "MR"
+              },
+              {
+                "const": "MS"
+              },
+              {
+                "const": "MT"
+              },
+              {
+                "const": "MU"
+              },
+              {
+                "const": "MV"
+              },
+              {
+                "const": "MW"
+              },
+              {
+                "const": "MX"
+              },
+              {
+                "const": "MY"
+              },
+              {
+                "const": "MZ"
+              },
+              {
+                "const": "NA"
+              },
+              {
+                "const": "NC"
+              },
+              {
+                "const": "NE"
+              },
+              {
+                "const": "NF"
+              },
+              {
+                "const": "NG"
+              },
+              {
+                "const": "NI"
+              },
+              {
+                "const": "NL"
+              },
+              {
+                "const": "NO"
+              },
+              {
+                "const": "NP"
+              },
+              {
+                "const": "NR"
+              },
+              {
+                "const": "NU"
+              },
+              {
+                "const": "NZ"
+              },
+              {
+                "const": "OM"
+              },
+              {
+                "const": "PA"
+              },
+              {
+                "const": "PE"
+              },
+              {
+                "const": "PF"
+              },
+              {
+                "const": "PG"
+              },
+              {
+                "const": "PH"
+              },
+              {
+                "const": "PK"
+              },
+              {
+                "const": "PL"
+              },
+              {
+                "const": "PM"
+              },
+              {
+                "const": "PN"
+              },
+              {
+                "const": "PR"
+              },
+              {
+                "const": "PS"
+              },
+              {
+                "const": "PT"
+              },
+              {
+                "const": "PW"
+              },
+              {
+                "const": "PY"
+              },
+              {
+                "const": "QA"
+              },
+              {
+                "const": "RE"
+              },
+              {
+                "const": "RO"
+              },
+              {
+                "const": "RS"
+              },
+              {
+                "const": "RU"
+              },
+              {
+                "const": "RW"
+              },
+              {
+                "const": "SA"
+              },
+              {
+                "const": "SB"
+              },
+              {
+                "const": "SC"
+              },
+              {
+                "const": "SD"
+              },
+              {
+                "const": "SE"
+              },
+              {
+                "const": "SG"
+              },
+              {
+                "const": "SH"
+              },
+              {
+                "const": "SI"
+              },
+              {
+                "const": "SJ"
+              },
+              {
+                "const": "SK"
+              },
+              {
+                "const": "SL"
+              },
+              {
+                "const": "SM"
+              },
+              {
+                "const": "SN"
+              },
+              {
+                "const": "SO"
+              },
+              {
+                "const": "SR"
+              },
+              {
+                "const": "SS"
+              },
+              {
+                "const": "ST"
+              },
+              {
+                "const": "SV"
+              },
+              {
+                "const": "SX"
+              },
+              {
+                "const": "SY"
+              },
+              {
+                "const": "SZ"
+              },
+              {
+                "const": "TC"
+              },
+              {
+                "const": "TD"
+              },
+              {
+                "const": "TF"
+              },
+              {
+                "const": "TG"
+              },
+              {
+                "const": "TH"
+              },
+              {
+                "const": "TJ"
+              },
+              {
+                "const": "TK"
+              },
+              {
+                "const": "TL"
+              },
+              {
+                "const": "TM"
+              },
+              {
+                "const": "TN"
+              },
+              {
+                "const": "TO"
+              },
+              {
+                "const": "TR"
+              },
+              {
+                "const": "TT"
+              },
+              {
+                "const": "TV"
+              },
+              {
+                "const": "TW"
+              },
+              {
+                "const": "TZ"
+              },
+              {
+                "const": "UA"
+              },
+              {
+                "const": "UG"
+              },
+              {
+                "const": "UM"
+              },
+              {
+                "const": "US"
+              },
+              {
+                "const": "UY"
+              },
+              {
+                "const": "UZ"
+              },
+              {
+                "const": "VA"
+              },
+              {
+                "const": "VC"
+              },
+              {
+                "const": "VE"
+              },
+              {
+                "const": "VG"
+              },
+              {
+                "const": "VI"
+              },
+              {
+                "const": "VN"
+              },
+              {
+                "const": "VU"
+              },
+              {
+                "const": "WF"
+              },
+              {
+                "const": "WS"
+              },
+              {
+                "const": "YE"
+              },
+              {
+                "const": "YT"
+              },
+              {
+                "const": "ZA"
+              },
+              {
+                "const": "ZM"
+              },
+              {
+                "const": "ZW"
+              }
+            ]
+          },
+          "is": {
+            "description": "Certificate Issuer",
+            "type": "string",
+            "maxLength": 80
+          },
+          "ci": {
+            "description": "Unique Certificate Identifier: UVCI",
+            "type": "string",
+            "maxLength": 80
+          }
+        }
+      },
+      "minItems": 1,
+      "maxItems": 1
+    },
+    "t": {
+      "description": "Test Group",
+      "type": "array",
+      "items": {
+        "description": "Test Entry",
+        "required": [
+          "tg",
+          "tt",
+          "sc",
+          "tr",
+          "tc",
+          "co",
+          "is",
+          "ci"
+        ],
+        "type": "object",
+        "properties": {
+          "tg": {
+            "description": "EU eHealthNetwork: Value Sets for Digital Covid Certificates. version 1.0, 2021-04-16, section 2.1",
+            "type": "string",
+            "oneOf": [
+              {
+                "const": "840539006"
+              }
+            ]
+          },
+          "tt": {
+            "description": "Type of Test",
+            "type": "string",
+            "oneOf": [
+              {
+                "const": "LP6464-4"
+              },
+              {
+                "const": "LP217198-3"
+              }
+            ]
+          },
+          "nm": {
+            "description": "NAA Test Name",
+            "type": "string",
+            "maxLength": 80
+          },
+          "ma": {
+            "description": "RAT Test name and manufacturer",
+            "type": "string",
+            "oneOf": [
+              {
+                "const": "308"
+              },
+              {
+                "const": "344"
+              },
+              {
+                "const": "345"
+              },
+              {
+                "const": "768"
+              },
+              {
+                "const": "1065"
+              },
+              {
+                "const": "1097"
+              },
+              {
+                "const": "1114"
+              },
+              {
+                "const": "1144"
+              },
+              {
+                "const": "1162"
+              },
+              {
+                "const": "1173"
+              },
+              {
+                "const": "1180"
+              },
+              {
+                "const": "1190"
+              },
+              {
+                "const": "1199"
+              },
+              {
+                "const": "1215"
+              },
+              {
+                "const": "1218"
+              },
+              {
+                "const": "1223"
+              },
+              {
+                "const": "1225"
+              },
+              {
+                "const": "1232"
+              },
+              {
+                "const": "1236"
+              },
+              {
+                "const": "1242"
+              },
+              {
+                "const": "1244"
+              },
+              {
+                "const": "1246"
+              },
+              {
+                "const": "1253"
+              },
+              {
+                "const": "1256"
+              },
+              {
+                "const": "1263"
+              },
+              {
+                "const": "1266"
+              },
+              {
+                "const": "1267"
+              },
+              {
+                "const": "1268"
+              },
+              {
+                "const": "1271"
+              },
+              {
+                "const": "1278"
+              },
+              {
+                "const": "1295"
+              },
+              {
+                "const": "1296"
+              },
+              {
+                "const": "1304"
+              },
+              {
+                "const": "1319"
+              },
+              {
+                "const": "1331"
+              },
+              {
+                "const": "1333"
+              },
+              {
+                "const": "1341"
+              },
+              {
+                "const": "1343"
+              },
+              {
+                "const": "1360"
+              },
+              {
+                "const": "1363"
+              },
+              {
+                "const": "1365"
+              },
+              {
+                "const": "1375"
+              },
+              {
+                "const": "1392"
+              },
+              {
+                "const": "1420"
+              },
+              {
+                "const": "1437"
+              },
+              {
+                "const": "1443"
+              },
+              {
+                "const": "1456"
+              },
+              {
+                "const": "1466"
+              },
+              {
+                "const": "1468"
+              },
+              {
+                "const": "1481"
+              },
+              {
+                "const": "1484"
+              },
+              {
+                "const": "1489"
+              },
+              {
+                "const": "1490"
+              },
+              {
+                "const": "1574"
+              },
+              {
+                "const": "1604"
+              },
+              {
+                "const": "1606"
+              },
+              {
+                "const": "1654"
+              },
+              {
+                "const": "1736"
+              },
+              {
+                "const": "1747"
+              },
+              {
+                "const": "1763"
+              },
+              {
+                "const": "1764"
+              },
+              {
+                "const": "1767"
+              },
+              {
+                "const": "1769"
+              },
+              {
+                "const": "1815"
+              },
+              {
+                "const": "1822"
+              },
+              {
+                "const": "1833"
+              },
+              {
+                "const": "1844"
+              },
+              {
+                "const": "1870"
+              },
+              {
+                "const": "1884"
+              },
+              {
+                "const": "1906"
+              },
+              {
+                "const": "1919"
+              },
+              {
+                "const": "1934"
+              },
+              {
+                "const": "2010"
+              },
+              {
+                "const": "2017"
+              }
+            ]
+          },
+          "sc": {
+            "description": "Date/Time of Sample Collection",
+            "type": "string",
+            "format": "date-time"
+          },
+          "tr": {
+            "description": "Test Result",
+            "type": "string",
+            "oneOf": [
+              {
+                "const": "260373001"
+              },
+              {
+                "const": "260415000"
+              }
+            ]
+          },
+          "tc": {
+            "description": "Testing Centre",
+            "type": "string",
+            "maxLength": 80
+          },
+          "co": {
+            "description": "Country of Test",
+            "type": "string",
+            "pattern": "[A-Z]{1,10}",
+            "oneOf": [
+              {
+                "const": "AD"
+              },
+              {
+                "const": "AE"
+              },
+              {
+                "const": "AF"
+              },
+              {
+                "const": "AG"
+              },
+              {
+                "const": "AI"
+              },
+              {
+                "const": "AL"
+              },
+              {
+                "const": "AM"
+              },
+              {
+                "const": "AO"
+              },
+              {
+                "const": "AQ"
+              },
+              {
+                "const": "AR"
+              },
+              {
+                "const": "AS"
+              },
+              {
+                "const": "AT"
+              },
+              {
+                "const": "AU"
+              },
+              {
+                "const": "AW"
+              },
+              {
+                "const": "AX"
+              },
+              {
+                "const": "AZ"
+              },
+              {
+                "const": "BA"
+              },
+              {
+                "const": "BB"
+              },
+              {
+                "const": "BD"
+              },
+              {
+                "const": "BE"
+              },
+              {
+                "const": "BF"
+              },
+              {
+                "const": "BG"
+              },
+              {
+                "const": "BH"
+              },
+              {
+                "const": "BI"
+              },
+              {
+                "const": "BJ"
+              },
+              {
+                "const": "BL"
+              },
+              {
+                "const": "BM"
+              },
+              {
+                "const": "BN"
+              },
+              {
+                "const": "BO"
+              },
+              {
+                "const": "BQ"
+              },
+              {
+                "const": "BR"
+              },
+              {
+                "const": "BS"
+              },
+              {
+                "const": "BT"
+              },
+              {
+                "const": "BV"
+              },
+              {
+                "const": "BW"
+              },
+              {
+                "const": "BY"
+              },
+              {
+                "const": "BZ"
+              },
+              {
+                "const": "CA"
+              },
+              {
+                "const": "CC"
+              },
+              {
+                "const": "CD"
+              },
+              {
+                "const": "CF"
+              },
+              {
+                "const": "CG"
+              },
+              {
+                "const": "CH"
+              },
+              {
+                "const": "CI"
+              },
+              {
+                "const": "CK"
+              },
+              {
+                "const": "CL"
+              },
+              {
+                "const": "CM"
+              },
+              {
+                "const": "CN"
+              },
+              {
+                "const": "CO"
+              },
+              {
+                "const": "CR"
+              },
+              {
+                "const": "CU"
+              },
+              {
+                "const": "CV"
+              },
+              {
+                "const": "CW"
+              },
+              {
+                "const": "CX"
+              },
+              {
+                "const": "CY"
+              },
+              {
+                "const": "CZ"
+              },
+              {
+                "const": "DE"
+              },
+              {
+                "const": "DJ"
+              },
+              {
+                "const": "DK"
+              },
+              {
+                "const": "DM"
+              },
+              {
+                "const": "DO"
+              },
+              {
+                "const": "DZ"
+              },
+              {
+                "const": "EC"
+              },
+              {
+                "const": "EE"
+              },
+              {
+                "const": "EG"
+              },
+              {
+                "const": "EH"
+              },
+              {
+                "const": "ER"
+              },
+              {
+                "const": "ES"
+              },
+              {
+                "const": "ET"
+              },
+              {
+                "const": "FI"
+              },
+              {
+                "const": "FJ"
+              },
+              {
+                "const": "FK"
+              },
+              {
+                "const": "FM"
+              },
+              {
+                "const": "FO"
+              },
+              {
+                "const": "FR"
+              },
+              {
+                "const": "GA"
+              },
+              {
+                "const": "GB"
+              },
+              {
+                "const": "GD"
+              },
+              {
+                "const": "GE"
+              },
+              {
+                "const": "GF"
+              },
+              {
+                "const": "GG"
+              },
+              {
+                "const": "GH"
+              },
+              {
+                "const": "GI"
+              },
+              {
+                "const": "GL"
+              },
+              {
+                "const": "GM"
+              },
+              {
+                "const": "GN"
+              },
+              {
+                "const": "GP"
+              },
+              {
+                "const": "GQ"
+              },
+              {
+                "const": "GR"
+              },
+              {
+                "const": "GS"
+              },
+              {
+                "const": "GT"
+              },
+              {
+                "const": "GU"
+              },
+              {
+                "const": "GW"
+              },
+              {
+                "const": "GY"
+              },
+              {
+                "const": "HK"
+              },
+              {
+                "const": "HM"
+              },
+              {
+                "const": "HN"
+              },
+              {
+                "const": "HR"
+              },
+              {
+                "const": "HT"
+              },
+              {
+                "const": "HU"
+              },
+              {
+                "const": "ID"
+              },
+              {
+                "const": "IE"
+              },
+              {
+                "const": "IL"
+              },
+              {
+                "const": "IM"
+              },
+              {
+                "const": "IN"
+              },
+              {
+                "const": "IO"
+              },
+              {
+                "const": "IQ"
+              },
+              {
+                "const": "IR"
+              },
+              {
+                "const": "IS"
+              },
+              {
+                "const": "IT"
+              },
+              {
+                "const": "JE"
+              },
+              {
+                "const": "JM"
+              },
+              {
+                "const": "JO"
+              },
+              {
+                "const": "JP"
+              },
+              {
+                "const": "KE"
+              },
+              {
+                "const": "KG"
+              },
+              {
+                "const": "KH"
+              },
+              {
+                "const": "KI"
+              },
+              {
+                "const": "KM"
+              },
+              {
+                "const": "KN"
+              },
+              {
+                "const": "KP"
+              },
+              {
+                "const": "KR"
+              },
+              {
+                "const": "KW"
+              },
+              {
+                "const": "KY"
+              },
+              {
+                "const": "KZ"
+              },
+              {
+                "const": "LA"
+              },
+              {
+                "const": "LB"
+              },
+              {
+                "const": "LC"
+              },
+              {
+                "const": "LI"
+              },
+              {
+                "const": "LK"
+              },
+              {
+                "const": "LR"
+              },
+              {
+                "const": "LS"
+              },
+              {
+                "const": "LT"
+              },
+              {
+                "const": "LU"
+              },
+              {
+                "const": "LV"
+              },
+              {
+                "const": "LY"
+              },
+              {
+                "const": "MA"
+              },
+              {
+                "const": "MC"
+              },
+              {
+                "const": "MD"
+              },
+              {
+                "const": "ME"
+              },
+              {
+                "const": "MF"
+              },
+              {
+                "const": "MG"
+              },
+              {
+                "const": "MH"
+              },
+              {
+                "const": "MK"
+              },
+              {
+                "const": "ML"
+              },
+              {
+                "const": "MM"
+              },
+              {
+                "const": "MN"
+              },
+              {
+                "const": "MO"
+              },
+              {
+                "const": "MP"
+              },
+              {
+                "const": "MQ"
+              },
+              {
+                "const": "MR"
+              },
+              {
+                "const": "MS"
+              },
+              {
+                "const": "MT"
+              },
+              {
+                "const": "MU"
+              },
+              {
+                "const": "MV"
+              },
+              {
+                "const": "MW"
+              },
+              {
+                "const": "MX"
+              },
+              {
+                "const": "MY"
+              },
+              {
+                "const": "MZ"
+              },
+              {
+                "const": "NA"
+              },
+              {
+                "const": "NC"
+              },
+              {
+                "const": "NE"
+              },
+              {
+                "const": "NF"
+              },
+              {
+                "const": "NG"
+              },
+              {
+                "const": "NI"
+              },
+              {
+                "const": "NL"
+              },
+              {
+                "const": "NO"
+              },
+              {
+                "const": "NP"
+              },
+              {
+                "const": "NR"
+              },
+              {
+                "const": "NU"
+              },
+              {
+                "const": "NZ"
+              },
+              {
+                "const": "OM"
+              },
+              {
+                "const": "PA"
+              },
+              {
+                "const": "PE"
+              },
+              {
+                "const": "PF"
+              },
+              {
+                "const": "PG"
+              },
+              {
+                "const": "PH"
+              },
+              {
+                "const": "PK"
+              },
+              {
+                "const": "PL"
+              },
+              {
+                "const": "PM"
+              },
+              {
+                "const": "PN"
+              },
+              {
+                "const": "PR"
+              },
+              {
+                "const": "PS"
+              },
+              {
+                "const": "PT"
+              },
+              {
+                "const": "PW"
+              },
+              {
+                "const": "PY"
+              },
+              {
+                "const": "QA"
+              },
+              {
+                "const": "RE"
+              },
+              {
+                "const": "RO"
+              },
+              {
+                "const": "RS"
+              },
+              {
+                "const": "RU"
+              },
+              {
+                "const": "RW"
+              },
+              {
+                "const": "SA"
+              },
+              {
+                "const": "SB"
+              },
+              {
+                "const": "SC"
+              },
+              {
+                "const": "SD"
+              },
+              {
+                "const": "SE"
+              },
+              {
+                "const": "SG"
+              },
+              {
+                "const": "SH"
+              },
+              {
+                "const": "SI"
+              },
+              {
+                "const": "SJ"
+              },
+              {
+                "const": "SK"
+              },
+              {
+                "const": "SL"
+              },
+              {
+                "const": "SM"
+              },
+              {
+                "const": "SN"
+              },
+              {
+                "const": "SO"
+              },
+              {
+                "const": "SR"
+              },
+              {
+                "const": "SS"
+              },
+              {
+                "const": "ST"
+              },
+              {
+                "const": "SV"
+              },
+              {
+                "const": "SX"
+              },
+              {
+                "const": "SY"
+              },
+              {
+                "const": "SZ"
+              },
+              {
+                "const": "TC"
+              },
+              {
+                "const": "TD"
+              },
+              {
+                "const": "TF"
+              },
+              {
+                "const": "TG"
+              },
+              {
+                "const": "TH"
+              },
+              {
+                "const": "TJ"
+              },
+              {
+                "const": "TK"
+              },
+              {
+                "const": "TL"
+              },
+              {
+                "const": "TM"
+              },
+              {
+                "const": "TN"
+              },
+              {
+                "const": "TO"
+              },
+              {
+                "const": "TR"
+              },
+              {
+                "const": "TT"
+              },
+              {
+                "const": "TV"
+              },
+              {
+                "const": "TW"
+              },
+              {
+                "const": "TZ"
+              },
+              {
+                "const": "UA"
+              },
+              {
+                "const": "UG"
+              },
+              {
+                "const": "UM"
+              },
+              {
+                "const": "US"
+              },
+              {
+                "const": "UY"
+              },
+              {
+                "const": "UZ"
+              },
+              {
+                "const": "VA"
+              },
+              {
+                "const": "VC"
+              },
+              {
+                "const": "VE"
+              },
+              {
+                "const": "VG"
+              },
+              {
+                "const": "VI"
+              },
+              {
+                "const": "VN"
+              },
+              {
+                "const": "VU"
+              },
+              {
+                "const": "WF"
+              },
+              {
+                "const": "WS"
+              },
+              {
+                "const": "YE"
+              },
+              {
+                "const": "YT"
+              },
+              {
+                "const": "ZA"
+              },
+              {
+                "const": "ZM"
+              },
+              {
+                "const": "ZW"
+              }
+            ]
+          },
+          "is": {
+            "description": "Certificate Issuer",
+            "type": "string",
+            "maxLength": 80
+          },
+          "ci": {
+            "description": "Unique Certificate Identifier, UVCI",
+            "type": "string",
+            "maxLength": 80
+          }
+        }
+      },
+      "minItems": 1,
+      "maxItems": 1
+    },
+    "r": {
+      "description": "Recovery Group",
+      "type": "array",
+      "items": {
+        "description": "Recovery Entry",
+        "required": [
+          "tg",
+          "fr",
+          "co",
+          "is",
+          "df",
+          "du",
+          "ci"
+        ],
+        "type": "object",
+        "properties": {
+          "tg": {
+            "description": "EU eHealthNetwork: Value Sets for Digital Covid Certificates. version 1.0, 2021-04-16, section 2.1",
+            "type": "string",
+            "oneOf": [
+              {
+                "const": "840539006"
+              }
+            ]
+          },
+          "fr": {
+            "description": "ISO 8601 complete date of first positive NAA test result",
+            "type": "string",
+            "format": "date"
+          },
+          "co": {
+            "description": "Country of Test",
+            "type": "string",
+            "pattern": "[A-Z]{1,10}",
+            "oneOf": [
+              {
+                "const": "AD"
+              },
+              {
+                "const": "AE"
+              },
+              {
+                "const": "AF"
+              },
+              {
+                "const": "AG"
+              },
+              {
+                "const": "AI"
+              },
+              {
+                "const": "AL"
+              },
+              {
+                "const": "AM"
+              },
+              {
+                "const": "AO"
+              },
+              {
+                "const": "AQ"
+              },
+              {
+                "const": "AR"
+              },
+              {
+                "const": "AS"
+              },
+              {
+                "const": "AT"
+              },
+              {
+                "const": "AU"
+              },
+              {
+                "const": "AW"
+              },
+              {
+                "const": "AX"
+              },
+              {
+                "const": "AZ"
+              },
+              {
+                "const": "BA"
+              },
+              {
+                "const": "BB"
+              },
+              {
+                "const": "BD"
+              },
+              {
+                "const": "BE"
+              },
+              {
+                "const": "BF"
+              },
+              {
+                "const": "BG"
+              },
+              {
+                "const": "BH"
+              },
+              {
+                "const": "BI"
+              },
+              {
+                "const": "BJ"
+              },
+              {
+                "const": "BL"
+              },
+              {
+                "const": "BM"
+              },
+              {
+                "const": "BN"
+              },
+              {
+                "const": "BO"
+              },
+              {
+                "const": "BQ"
+              },
+              {
+                "const": "BR"
+              },
+              {
+                "const": "BS"
+              },
+              {
+                "const": "BT"
+              },
+              {
+                "const": "BV"
+              },
+              {
+                "const": "BW"
+              },
+              {
+                "const": "BY"
+              },
+              {
+                "const": "BZ"
+              },
+              {
+                "const": "CA"
+              },
+              {
+                "const": "CC"
+              },
+              {
+                "const": "CD"
+              },
+              {
+                "const": "CF"
+              },
+              {
+                "const": "CG"
+              },
+              {
+                "const": "CH"
+              },
+              {
+                "const": "CI"
+              },
+              {
+                "const": "CK"
+              },
+              {
+                "const": "CL"
+              },
+              {
+                "const": "CM"
+              },
+              {
+                "const": "CN"
+              },
+              {
+                "const": "CO"
+              },
+              {
+                "const": "CR"
+              },
+              {
+                "const": "CU"
+              },
+              {
+                "const": "CV"
+              },
+              {
+                "const": "CW"
+              },
+              {
+                "const": "CX"
+              },
+              {
+                "const": "CY"
+              },
+              {
+                "const": "CZ"
+              },
+              {
+                "const": "DE"
+              },
+              {
+                "const": "DJ"
+              },
+              {
+                "const": "DK"
+              },
+              {
+                "const": "DM"
+              },
+              {
+                "const": "DO"
+              },
+              {
+                "const": "DZ"
+              },
+              {
+                "const": "EC"
+              },
+              {
+                "const": "EE"
+              },
+              {
+                "const": "EG"
+              },
+              {
+                "const": "EH"
+              },
+              {
+                "const": "ER"
+              },
+              {
+                "const": "ES"
+              },
+              {
+                "const": "ET"
+              },
+              {
+                "const": "FI"
+              },
+              {
+                "const": "FJ"
+              },
+              {
+                "const": "FK"
+              },
+              {
+                "const": "FM"
+              },
+              {
+                "const": "FO"
+              },
+              {
+                "const": "FR"
+              },
+              {
+                "const": "GA"
+              },
+              {
+                "const": "GB"
+              },
+              {
+                "const": "GD"
+              },
+              {
+                "const": "GE"
+              },
+              {
+                "const": "GF"
+              },
+              {
+                "const": "GG"
+              },
+              {
+                "const": "GH"
+              },
+              {
+                "const": "GI"
+              },
+              {
+                "const": "GL"
+              },
+              {
+                "const": "GM"
+              },
+              {
+                "const": "GN"
+              },
+              {
+                "const": "GP"
+              },
+              {
+                "const": "GQ"
+              },
+              {
+                "const": "GR"
+              },
+              {
+                "const": "GS"
+              },
+              {
+                "const": "GT"
+              },
+              {
+                "const": "GU"
+              },
+              {
+                "const": "GW"
+              },
+              {
+                "const": "GY"
+              },
+              {
+                "const": "HK"
+              },
+              {
+                "const": "HM"
+              },
+              {
+                "const": "HN"
+              },
+              {
+                "const": "HR"
+              },
+              {
+                "const": "HT"
+              },
+              {
+                "const": "HU"
+              },
+              {
+                "const": "ID"
+              },
+              {
+                "const": "IE"
+              },
+              {
+                "const": "IL"
+              },
+              {
+                "const": "IM"
+              },
+              {
+                "const": "IN"
+              },
+              {
+                "const": "IO"
+              },
+              {
+                "const": "IQ"
+              },
+              {
+                "const": "IR"
+              },
+              {
+                "const": "IS"
+              },
+              {
+                "const": "IT"
+              },
+              {
+                "const": "JE"
+              },
+              {
+                "const": "JM"
+              },
+              {
+                "const": "JO"
+              },
+              {
+                "const": "JP"
+              },
+              {
+                "const": "KE"
+              },
+              {
+                "const": "KG"
+              },
+              {
+                "const": "KH"
+              },
+              {
+                "const": "KI"
+              },
+              {
+                "const": "KM"
+              },
+              {
+                "const": "KN"
+              },
+              {
+                "const": "KP"
+              },
+              {
+                "const": "KR"
+              },
+              {
+                "const": "KW"
+              },
+              {
+                "const": "KY"
+              },
+              {
+                "const": "KZ"
+              },
+              {
+                "const": "LA"
+              },
+              {
+                "const": "LB"
+              },
+              {
+                "const": "LC"
+              },
+              {
+                "const": "LI"
+              },
+              {
+                "const": "LK"
+              },
+              {
+                "const": "LR"
+              },
+              {
+                "const": "LS"
+              },
+              {
+                "const": "LT"
+              },
+              {
+                "const": "LU"
+              },
+              {
+                "const": "LV"
+              },
+              {
+                "const": "LY"
+              },
+              {
+                "const": "MA"
+              },
+              {
+                "const": "MC"
+              },
+              {
+                "const": "MD"
+              },
+              {
+                "const": "ME"
+              },
+              {
+                "const": "MF"
+              },
+              {
+                "const": "MG"
+              },
+              {
+                "const": "MH"
+              },
+              {
+                "const": "MK"
+              },
+              {
+                "const": "ML"
+              },
+              {
+                "const": "MM"
+              },
+              {
+                "const": "MN"
+              },
+              {
+                "const": "MO"
+              },
+              {
+                "const": "MP"
+              },
+              {
+                "const": "MQ"
+              },
+              {
+                "const": "MR"
+              },
+              {
+                "const": "MS"
+              },
+              {
+                "const": "MT"
+              },
+              {
+                "const": "MU"
+              },
+              {
+                "const": "MV"
+              },
+              {
+                "const": "MW"
+              },
+              {
+                "const": "MX"
+              },
+              {
+                "const": "MY"
+              },
+              {
+                "const": "MZ"
+              },
+              {
+                "const": "NA"
+              },
+              {
+                "const": "NC"
+              },
+              {
+                "const": "NE"
+              },
+              {
+                "const": "NF"
+              },
+              {
+                "const": "NG"
+              },
+              {
+                "const": "NI"
+              },
+              {
+                "const": "NL"
+              },
+              {
+                "const": "NO"
+              },
+              {
+                "const": "NP"
+              },
+              {
+                "const": "NR"
+              },
+              {
+                "const": "NU"
+              },
+              {
+                "const": "NZ"
+              },
+              {
+                "const": "OM"
+              },
+              {
+                "const": "PA"
+              },
+              {
+                "const": "PE"
+              },
+              {
+                "const": "PF"
+              },
+              {
+                "const": "PG"
+              },
+              {
+                "const": "PH"
+              },
+              {
+                "const": "PK"
+              },
+              {
+                "const": "PL"
+              },
+              {
+                "const": "PM"
+              },
+              {
+                "const": "PN"
+              },
+              {
+                "const": "PR"
+              },
+              {
+                "const": "PS"
+              },
+              {
+                "const": "PT"
+              },
+              {
+                "const": "PW"
+              },
+              {
+                "const": "PY"
+              },
+              {
+                "const": "QA"
+              },
+              {
+                "const": "RE"
+              },
+              {
+                "const": "RO"
+              },
+              {
+                "const": "RS"
+              },
+              {
+                "const": "RU"
+              },
+              {
+                "const": "RW"
+              },
+              {
+                "const": "SA"
+              },
+              {
+                "const": "SB"
+              },
+              {
+                "const": "SC"
+              },
+              {
+                "const": "SD"
+              },
+              {
+                "const": "SE"
+              },
+              {
+                "const": "SG"
+              },
+              {
+                "const": "SH"
+              },
+              {
+                "const": "SI"
+              },
+              {
+                "const": "SJ"
+              },
+              {
+                "const": "SK"
+              },
+              {
+                "const": "SL"
+              },
+              {
+                "const": "SM"
+              },
+              {
+                "const": "SN"
+              },
+              {
+                "const": "SO"
+              },
+              {
+                "const": "SR"
+              },
+              {
+                "const": "SS"
+              },
+              {
+                "const": "ST"
+              },
+              {
+                "const": "SV"
+              },
+              {
+                "const": "SX"
+              },
+              {
+                "const": "SY"
+              },
+              {
+                "const": "SZ"
+              },
+              {
+                "const": "TC"
+              },
+              {
+                "const": "TD"
+              },
+              {
+                "const": "TF"
+              },
+              {
+                "const": "TG"
+              },
+              {
+                "const": "TH"
+              },
+              {
+                "const": "TJ"
+              },
+              {
+                "const": "TK"
+              },
+              {
+                "const": "TL"
+              },
+              {
+                "const": "TM"
+              },
+              {
+                "const": "TN"
+              },
+              {
+                "const": "TO"
+              },
+              {
+                "const": "TR"
+              },
+              {
+                "const": "TT"
+              },
+              {
+                "const": "TV"
+              },
+              {
+                "const": "TW"
+              },
+              {
+                "const": "TZ"
+              },
+              {
+                "const": "UA"
+              },
+              {
+                "const": "UG"
+              },
+              {
+                "const": "UM"
+              },
+              {
+                "const": "US"
+              },
+              {
+                "const": "UY"
+              },
+              {
+                "const": "UZ"
+              },
+              {
+                "const": "VA"
+              },
+              {
+                "const": "VC"
+              },
+              {
+                "const": "VE"
+              },
+              {
+                "const": "VG"
+              },
+              {
+                "const": "VI"
+              },
+              {
+                "const": "VN"
+              },
+              {
+                "const": "VU"
+              },
+              {
+                "const": "WF"
+              },
+              {
+                "const": "WS"
+              },
+              {
+                "const": "YE"
+              },
+              {
+                "const": "YT"
+              },
+              {
+                "const": "ZA"
+              },
+              {
+                "const": "ZM"
+              },
+              {
+                "const": "ZW"
+              }
+            ]
+          },
+          "is": {
+            "description": "Certificate Issuer",
+            "type": "string",
+            "maxLength": 80
+          },
+          "df": {
+            "description": "ISO 8601 complete date: Certificate Valid From",
+            "type": "string",
+            "format": "date"
+          },
+          "du": {
+            "description": "ISO 8601 complete date: Certificate Valid Until",
+            "type": "string",
+            "format": "date"
+          },
+          "ci": {
+            "description": "Unique Certificate Identifier, UVCI",
+            "type": "string",
+            "maxLength": 80
+          }
+        }
+      },
+      "minItems": 1,
+      "maxItems": 1
+    }
+  }
+}

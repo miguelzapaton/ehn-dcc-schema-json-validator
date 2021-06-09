@@ -1,0 +1,76 @@
+../../data/dcc-testdata-latest/BG/2DCode/raw/1.json (Schema version tag: 1.0.0)
+VALIDATION ERRORS FOUND:
+{
+  "ver": "1.0.0",
+  "nam": {
+    "fn": "ПЕТКОВ",
+    "gn": "СТАМО ГЕОРГИЕВ",
+    "fnt": "PETKOV",
+    "gnt": "STAMO<GEORGIEV"
+  },
+  "dob": "1978-01-26",
+  "v": [
+    {
+      "tg": "840539006",
+      "vp": "J07BX03",
+      "mp": "EU/1/20/1528",
+      "ma": "ORG-100030215",
+      "dn": 1,
+      "sd": 2,
+      "dt": "2021-02-16",
+      "co": "BG",
+      "is": "Ministry of Health",
+      "ci": "urn:uvci:10:BG:3P3K6F5GLW46LRZT#H"
+    },
+    {
+      "tg": "840539006",
+      "vp": "J07BX03",
+      "mp": "EU/1/20/1528",
+      "ma": "ORG-100030215",
+      "dn": 2,
+      "sd": 2,
+      "dt": "2021-03-09",
+      "co": "BG",
+      "is": "Ministry of Health",
+      "ci": "urn:uvci:10:BG:3P3K6F5GLW46LRZT#H"
+    }
+  ]
+}
+[
+  {
+    "instancePath": "/v",
+    "schemaPath": "#/allOf/1/oneOf/0/properties/v/maxItems",
+    "keyword": "maxItems",
+    "params": {
+      "limit": 1
+    },
+    "message": "must NOT have more than 1 items"
+  },
+  {
+    "instancePath": "",
+    "schemaPath": "#/allOf/1/oneOf/1/required",
+    "keyword": "required",
+    "params": {
+      "missingProperty": "t"
+    },
+    "message": "must have required property 't'"
+  },
+  {
+    "instancePath": "",
+    "schemaPath": "#/allOf/1/oneOf/2/required",
+    "keyword": "required",
+    "params": {
+      "missingProperty": "r"
+    },
+    "message": "must have required property 'r'"
+  },
+  {
+    "instancePath": "",
+    "schemaPath": "#/allOf/1/oneOf",
+    "keyword": "oneOf",
+    "params": {
+      "passingSchemas": null
+    },
+    "message": "must match exactly one schema in oneOf"
+  }
+]
