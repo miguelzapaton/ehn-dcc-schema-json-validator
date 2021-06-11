@@ -3,4 +3,5 @@ node_modules
 data
 resources-tmp/jsonschema/**/*_old_*
 log/dcc-testdata-latest/validation_run_*
+log/dcc-testdata-latest/schemacompatibilitytest_run_*
 log/examples-latest/validation_run_*

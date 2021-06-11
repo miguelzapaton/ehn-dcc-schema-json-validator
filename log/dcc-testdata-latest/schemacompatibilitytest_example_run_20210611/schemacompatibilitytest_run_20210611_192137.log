@@ -1,0 +1,38 @@
+Schema versions tested: {"1":["1.2.1","1.3.0-spec"]}
+../../data/dcc-testdata-latest/common/2DCode/raw/DGC2.json (Schema version tag: 1.0.0)
+["1.2.1","1.3.0-spec"] valid: [true,false]
+../../data/dcc-testdata-latest/NL/2DCode/raw/052-NL-vaccination.json (Schema version tag: 1.0.0)
+["1.2.1","1.3.0-spec"] valid: [true,false]
+../../data/dcc-testdata-latest/NL/2DCode/raw/062-NL-vaccination.json (Schema version tag: 1.0.0)
+["1.2.1","1.3.0-spec"] valid: [true,false]
+../../data/dcc-testdata-latest/NL/2DCode/raw/067-NL-vaccination.json (Schema version tag: 1.0.0)
+["1.2.1","1.3.0-spec"] valid: [true,false]
+../../data/dcc-testdata-latest/NL/2DCode/raw/071-NL-vaccination.json (Schema version tag: 1.0.0)
+["1.2.1","1.3.0-spec"] valid: [true,false]
+../../data/dcc-testdata-latest/NL/2DCode/raw/072-NL-vaccination.json (Schema version tag: 1.0.0)
+["1.2.1","1.3.0-spec"] valid: [true,false]
+../../data/dcc-testdata-latest/NL/2DCode/raw/086-NL-vaccination.json (Schema version tag: 1.0.0)
+["1.2.1","1.3.0-spec"] valid: [true,false]
+../../data/dcc-testdata-latest/NL/2DCode/raw/088-NL-vaccination.json (Schema version tag: 1.0.0)
+["1.2.1","1.3.0-spec"] valid: [true,false]
+../../data/dcc-testdata-latest/NL/2DCode/raw/238-NL-recovery+vaccination.json (Schema version tag: 1.0.0)
+["1.2.1","1.3.0-spec"] valid: [true,false]
+../../data/dcc-testdata-latest/NL/2DCode/raw/243-NL-recovery+vaccination.json (Schema version tag: 1.0.0)
+["1.2.1","1.3.0-spec"] valid: [true,false]
+../../data/dcc-testdata-latest/NL/2DCode/raw/249-NL-recovery+vaccination.json (Schema version tag: 1.0.0)
+["1.2.1","1.3.0-spec"] valid: [true,false]
+../../data/dcc-testdata-latest/NL/2DCode/raw/251-NL-recovery+vaccination.json (Schema version tag: 1.0.0)
+["1.2.1","1.3.0-spec"] valid: [true,false]
+../../data/dcc-testdata-latest/NL/2DCode/raw/270-NL-recovery+vaccination.json (Schema version tag: 1.0.0)
+["1.2.1","1.3.0-spec"] valid: [true,false]
+../../data/dcc-testdata-latest/NL/2DCode/raw/275-NL-recovery+vaccination.json (Schema version tag: 1.0.0)
+["1.2.1","1.3.0-spec"] valid: [true,false]
+../../data/dcc-testdata-latest/NL/2DCode/raw/276-NL-recovery+vaccination.json (Schema version tag: 1.0.0)
+["1.2.1","1.3.0-spec"] valid: [true,false]
+../../data/dcc-testdata-latest/PL/2DCode/raw/8.json (Schema version tag: 1.0.0)
+["1.2.1","1.3.0-spec"] valid: [true,false]
+../../data/dcc-testdata-latest/RO/2DCode/raw/2.json (Schema version tag: 1.0.0)
+["1.2.1","1.3.0-spec"] valid: [true,false]
+../../data/dcc-testdata-latest/SK/2DCode/raw/3.json (Schema version tag: 1.0.0)
+["1.2.1","1.3.0-spec"] valid: [true,false]
+Schema compatibility tested 549 DCC JSON files.

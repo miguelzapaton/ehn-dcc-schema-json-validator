@@ -1,0 +1,49 @@
+../../data/dcc-testdata-latest/SK/2DCode/raw/3.json (Schema version tag: 1.0.0)
+VALIDATION ERRORS FOUND:
+{
+  "ver": "1.0.0",
+  "nam": {
+    "fn": "Prism",
+    "gn": "Róbert",
+    "fnt": "PRISM",
+    "gnt": "ROBERT"
+  },
+  "dob": "1955-04-21",
+  "v": [
+    {
+      "tg": "840539006",
+      "vp": "1119305005",
+      "mp": "EU/1/21/1529",
+      "ma": "ORG-100001699",
+      "dn": 1,
+      "sd": 2,
+      "dt": "2021-03-30",
+      "co": "SK",
+      "is": "National Health Information Center, Slovakia",
+      "ci": "urn:uvci:01:SK:AD49A022B66F43189238DC38B78D8027"
+    },
+    {
+      "tg": "840539006",
+      "vp": "1119305005",
+      "mp": "EU/1/21/1529",
+      "ma": "ORG-100001699",
+      "dn": 2,
+      "sd": 2,
+      "dt": "2021-05-19",
+      "co": "SK",
+      "is": "National Health Information Center, Slovakia",
+      "ci": "urn:uvci:01:SK:AD49A022B66F43189238DC38B78D8027"
+    }
+  ]
+}
+[
+  {
+    "instancePath": "/v",
+    "schemaPath": "#/properties/v/maxItems",
+    "keyword": "maxItems",
+    "params": {
+      "limit": 1
+    },
+    "message": "must NOT have more than 1 items"
+  }
+]
