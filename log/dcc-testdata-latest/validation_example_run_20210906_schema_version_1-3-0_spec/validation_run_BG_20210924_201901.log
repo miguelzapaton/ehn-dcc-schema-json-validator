@@ -1,0 +1,171 @@
+../../data/dcc-testdata-latest/BG/2DCode/raw/1.json (Schema version tag: 1.0.0 | Validated against schema version: 1.3.0-spec)
+VALIDATION ERRORS FOUND:
+{
+  "r": null,
+  "t": null,
+  "v": [
+    {
+      "ci": "urn:uvci:01:BG:UFR5PLGKU8WDSZK7#0",
+      "co": "BG",
+      "dn": 2,
+      "dt": "2021-03-09T00:00:00",
+      "is": "Ministry of Health",
+      "ma": "ORG-100030215",
+      "mp": "EU/1/20/1528",
+      "sd": 2,
+      "tg": "840539006",
+      "vp": "J07BX03"
+    }
+  ],
+  "dob": "1978-01-26T00:00:00",
+  "nam": {
+    "fn": "ПЕТКОВ",
+    "gn": "СТАМО ГЕОРГИЕВ",
+    "fnt": "PETKOV",
+    "gnt": "STAMO<GEORGIEV"
+  },
+  "ver": "1.0.0"
+}
+[
+  {
+    "instancePath": "",
+    "schemaPath": "#/oneOf",
+    "keyword": "oneOf",
+    "params": {
+      "passingSchemas": [
+        0,
+        1
+      ]
+    },
+    "message": "must match exactly one schema in oneOf"
+  },
+  {
+    "instancePath": "/dob",
+    "schemaPath": "#/properties/dob/pattern",
+    "keyword": "pattern",
+    "params": {
+      "pattern": "^((19|20)\\d\\d(-\\d\\d){0,2}){0,1}$"
+    },
+    "message": "must match pattern \"^((19|20)\\d\\d(-\\d\\d){0,2}){0,1}$\""
+  },
+  {
+    "instancePath": "/v/0/dt",
+    "schemaPath": "#/properties/v/items/properties/dt/format",
+    "keyword": "format",
+    "params": {
+      "format": "date"
+    },
+    "message": "must match format \"date\""
+  },
+  {
+    "instancePath": "/t",
+    "schemaPath": "#/properties/t/type",
+    "keyword": "type",
+    "params": {
+      "type": "array"
+    },
+    "message": "must be array"
+  },
+  {
+    "instancePath": "/r",
+    "schemaPath": "#/properties/r/type",
+    "keyword": "type",
+    "params": {
+      "type": "array"
+    },
+    "message": "must be array"
+  }
+]
+../../data/dcc-testdata-latest/BG/2DCode/raw/2.json (Schema version tag: 1.0.0 | Validated against schema version: 1.3.0-spec)
+VALIDATION ERRORS FOUND:
+{
+  "r": [
+    {
+      "ci": "urn:uvci:01:BG:UFR5PLGKU8WDSZK7#0",
+      "co": "BG",
+      "df": "2021-05-11T00:00:00",
+      "du": "2021-10-28T00:00:00",
+      "fr": "2021-05-01T00:00:00",
+      "is": "Ministry of Health",
+      "tg": "840539006"
+    }
+  ],
+  "t": null,
+  "v": null,
+  "dob": "1978-01-26T00:00:00",
+  "nam": {
+    "fn": "ПЕТКОВ",
+    "gn": "СТАМО ГЕОРГИЕВ",
+    "fnt": "PETKOV",
+    "gnt": "STAMO<GEORGIEV"
+  },
+  "ver": "1.0.0"
+}
+[
+  {
+    "instancePath": "",
+    "schemaPath": "#/oneOf",
+    "keyword": "oneOf",
+    "params": {
+      "passingSchemas": [
+        0,
+        1
+      ]
+    },
+    "message": "must match exactly one schema in oneOf"
+  },
+  {
+    "instancePath": "/dob",
+    "schemaPath": "#/properties/dob/pattern",
+    "keyword": "pattern",
+    "params": {
+      "pattern": "^((19|20)\\d\\d(-\\d\\d){0,2}){0,1}$"
+    },
+    "message": "must match pattern \"^((19|20)\\d\\d(-\\d\\d){0,2}){0,1}$\""
+  },
+  {
+    "instancePath": "/v",
+    "schemaPath": "#/properties/v/type",
+    "keyword": "type",
+    "params": {
+      "type": "array"
+    },
+    "message": "must be array"
+  },
+  {
+    "instancePath": "/t",
+    "schemaPath": "#/properties/t/type",
+    "keyword": "type",
+    "params": {
+      "type": "array"
+    },
+    "message": "must be array"
+  },
+  {
+    "instancePath": "/r/0/fr",
+    "schemaPath": "#/properties/r/items/properties/fr/format",
+    "keyword": "format",
+    "params": {
+      "format": "date"
+    },
+    "message": "must match format \"date\""
+  },
+  {
+    "instancePath": "/r/0/df",
+    "schemaPath": "#/properties/r/items/properties/df/format",
+    "keyword": "format",
+    "params": {
+      "format": "date"
+    },
+    "message": "must match format \"date\""
+  },
+  {
+    "instancePath": "/r/0/du",
+    "schemaPath": "#/properties/r/items/properties/du/format",
+    "keyword": "format",
+    "params": {
+      "format": "date"
+    },
+    "message": "must match format \"date\""
+  }
+]

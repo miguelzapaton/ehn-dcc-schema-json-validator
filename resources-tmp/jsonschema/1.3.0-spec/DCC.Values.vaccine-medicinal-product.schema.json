@@ -47,6 +47,9 @@
           },
           {
             "const": "Covaxin"
+          },
+          {
+            "const": "Covishield"
           }
         ]
       }

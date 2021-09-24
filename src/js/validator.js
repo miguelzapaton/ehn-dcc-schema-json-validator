@@ -5,8 +5,16 @@ import addFormats from 'ajv-formats';
 
 const latestschemarevisionmap = new Map(
   [
-      ['1', '1.3.0-spec']
+      /*['1', '1.3.0-spec']*/
+      ['1', 'dynamic']  // 'dynamic' validates with the corresponding version from the DCC ver tag
     ]
+);
+
+const schemarevisionremap = new Map(
+  [
+    ['1.0.4', '1.0.1'],
+    ['1.3.0', '1.3.0-spec']   // use JSON Schema 2020-12 spec conform version
+  ]
 );
 
 
@@ -84,35 +92,51 @@ async function validateDCCTestDataJSON () {
 
     if (dcc != null && dcc.JSON != null && dcc.JSON.ver != null && dcc.JSON.ver.length > 0) {
 
-      const version = dcc.JSON.ver;
+      let dccschemaversiontag = dcc.JSON.ver;
 
-      const latestschemaversion = latestschemarevisionmap.get(version.substr(0,1));
+      let schemaversion = latestschemarevisionmap.get(dccschemaversiontag.substr(0,1));
 
-      if (latestschemaversion != null) {
+      if (schemaversion === 'dynamic') {
+
+        const sanitizedschemaversion = schemarevisionremap.get(dccschemaversiontag);
+
+        if (sanitizedschemaversion != null) {
+
+          schemaversion = sanitizedschemaversion;
+
+        } else {
+
+          schemaversion = dccschemaversiontag;
+
+        }
+
+      }
+
+      if (schemaversion != null) {
 
         let validate;
 
-        if (ajvcachemap.has(latestschemaversion)) {
+        if (ajvcachemap.has(schemaversion)) {
 
-          validate = ajvcachemap.get(latestschemaversion);
+          validate = ajvcachemap.get(schemaversion);
 
         } else {
 
           const ajv = new Ajv({strict: true, verbose: false, allErrors: true});
           addFormats(ajv);
-          const fullschema = JSON.parse(fs.readFileSync('../../resources-tmp/jsonschema/' + latestschemaversion + '/DCC.Schema.Combined.Full.json', 'utf8'));
+          const fullschema = JSON.parse(fs.readFileSync('../../resources-tmp/jsonschema/' + schemaversion + '/DCC.Schema.Combined.Full.json', 'utf8'));
           validate = ajv.compile(fullschema);
 
-          ajvcachemap.set(latestschemaversion, validate);
+          ajvcachemap.set(schemaversion, validate);
 
         }
 
         const valid = validate(dcc.JSON);
         if (!valid) {
 
-          console.log(file + ' (Schema version tag: ' + version + ')');
-          log.write(file + ' (Schema version tag: ' + version + ')\n');
-          fs.appendFileSync('../../log/dcc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', file + ' (Schema version tag: ' + version + ')\n');
+          console.log(file + ' (Schema version tag: ' + dccschemaversiontag + ' | Validated against schema version: ' + schemaversion + ')');
+          log.write(file + ' (Schema version tag: ' + dccschemaversiontag + ' | Validated against schema version: ' + schemaversion + ')\n');
+          fs.appendFileSync('../../log/dcc-testdata-latest/validation_run_' + timestamp + '/validation_run_' + countrycode + '_' + timestamp + '.log', file + ' (Schema version tag: ' + dccschemaversiontag + ' | Validated against schema version: ' + schemaversion + ')\n');
 
           console.log('VALIDATION ERRORS FOUND:');
           log.write('VALIDATION ERRORS FOUND:\n');
@@ -130,8 +154,8 @@ async function validateDCCTestDataJSON () {
 
         } else {
 
-          console.log(file + ' (Schema version tag: ' + version + ')');
-          log.write(file + ' (Schema version tag: ' + version + ')\n');
+          console.log(file + ' (Schema version tag: ' + dccschemaversiontag + ' | Validated against schema version: ' + schemaversion + ')');
+          log.write(file + ' (Schema version tag: ' + dccschemaversiontag + ' | Validated against schema version: ' + schemaversion + ')\n');
 
           console.log('OK');
           log.write('OK' + '\n');
@@ -196,34 +220,50 @@ async function validateDCCExampleDataJSON () {
 
     if (dcc != null && dcc.ver != null && dcc.ver.length > 0) {
 
-      const version = dcc.ver;
+      let dccschemaversiontag = dcc.ver;
 
-      const latestschemaversion = latestschemarevisionmap.get(version.substr(0,1));
+      let schemaversion = latestschemarevisionmap.get(dccschemaversiontag.substr(0,1));
 
-      if (latestschemaversion != null) {
+      if (schemaversion === 'dynamic') {
+
+        const sanitizedschemaversion = schemarevisionremap.get(dccschemaversiontag);
+
+        if (sanitizedschemaversion != null) {
+
+          schemaversion = sanitizedschemaversion;
+
+        } else {
+
+          schemaversion = dccschemaversiontag;
+
+        }
+
+      }
+
+      if (schemaversion != null) {
 
         let validate;
 
-        if (ajvcachemap.has(latestschemaversion)) {
+        if (ajvcachemap.has(schemaversion)) {
 
-          validate = ajvcachemap.get(latestschemaversion);
+          validate = ajvcachemap.get(schemaversion);
 
         } else {
 
           const ajv = new Ajv({strict: true, verbose: false, allErrors: true});
           addFormats(ajv);
-          const fullschema = JSON.parse(fs.readFileSync('../../resources-tmp/jsonschema/' + latestschemaversion + '/DCC.Schema.Combined.Full.json', 'utf8'));
+          const fullschema = JSON.parse(fs.readFileSync('../../resources-tmp/jsonschema/' + schemaversion + '/DCC.Schema.Combined.Full.json', 'utf8'));
           validate = ajv.compile(fullschema);
 
-          ajvcachemap.set(latestschemaversion, validate);
+          ajvcachemap.set(schemaversion, validate);
 
         }
 
         const valid = validate(dcc);
         if (!valid) {
 
-          console.log(file + ' (Schema version tag: ' + version + ')');
-          log.write(file + ' (Schema version tag: ' + version + ')\n');
+          console.log(file + ' (Schema version tag: ' + dccschemaversiontag + ' | Validated against schema version: ' + schemaversion + ')');
+          log.write(file + ' (Schema version tag: ' + dccschemaversiontag + ' | Validated against schema version: ' + schemaversion + ')\n');
 
           console.log('ERRORS FOUND:');
           log.write('ERRORS FOUND:\n');
@@ -238,8 +278,8 @@ async function validateDCCExampleDataJSON () {
 
         } else {
 
-          console.log(file + ' (Schema version tag: ' + version + ')');
-          log.write(file + ' (Schema version tag: ' + version + ')\n');
+          console.log(file + ' (Schema version tag: ' + dccschemaversiontag + ' | Validated against schema version: ' + schemaversion + ')');
+          log.write(file + ' (Schema version tag: ' + dccschemaversiontag + ' | Validated against schema version: ' + schemaversion + ')\n');
 
           console.log('OK');
           log.write('OK' + '\n');

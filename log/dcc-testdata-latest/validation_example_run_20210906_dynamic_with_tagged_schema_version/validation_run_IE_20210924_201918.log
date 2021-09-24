@@ -1,0 +1,110 @@
+../../data/dcc-testdata-latest/IE/2DCode/Raw/2.json (Schema version tag: 1.0.4 | Validated against schema version: 1.0.1)
+VALIDATION ERRORS FOUND:
+{
+  "ver": "1.0.4",
+  "nam": {
+    "fn": "Bloggs",
+    "fnt": "BLOGGS",
+    "gn": "Jane",
+    "gnt": "JANE"
+  },
+  "dob": "1988-06-07",
+  "t": [
+    {
+      "tg": "840539006",
+      "tt": "COVID-19 test",
+      "ma": "1232",
+      "sc": "2021-06-05T00:00:00+02:00",
+      "dr": "2021-06-06T00:00:00+02:00",
+      "tr": "260415000",
+      "tc": "HSE",
+      "co": "IE",
+      "is": "HSE",
+      "ci": "URN:UVCI:01:IE:ec0a43b89c984e379493c27aa456c04c#J"
+    }
+  ]
+}
+[
+  {
+    "instancePath": "/t/0/tt",
+    "schemaPath": "#/properties/t/items/properties/tt/oneOf/0/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "LP6464-4"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/tt",
+    "schemaPath": "#/properties/t/items/properties/tt/oneOf/1/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "LP217198-3"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/tt",
+    "schemaPath": "#/properties/t/items/properties/tt/oneOf",
+    "keyword": "oneOf",
+    "params": {
+      "passingSchemas": null
+    },
+    "message": "must match exactly one schema in oneOf"
+  }
+]
+../../data/dcc-testdata-latest/IE/2DCode/Raw/3.json (Schema version tag: 1.0.4 | Validated against schema version: 1.0.1)
+VALIDATION ERRORS FOUND:
+{
+  "ver": "1.0.4",
+  "nam": {
+    "fn": "Bloggs",
+    "fnt": "BLOGGS",
+    "gn": "Jane",
+    "gnt": "JANE"
+  },
+  "dob": "1988-06-07",
+  "t": [
+    {
+      "tg": "840539006",
+      "tt": "COVID-19 test",
+      "nm": "NAA test",
+      "sc": "2021-06-05T00:00:00+02:00",
+      "dr": "2021-06-06T00:00:00+02:00",
+      "tr": "260415000",
+      "tc": "HSE",
+      "co": "IE",
+      "is": "HSE",
+      "ci": "URN:UVCI:01:IE:1eb24cba367a40e0ae559013ad87523c#D"
+    }
+  ]
+}
+[
+  {
+    "instancePath": "/t/0/tt",
+    "schemaPath": "#/properties/t/items/properties/tt/oneOf/0/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "LP6464-4"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/tt",
+    "schemaPath": "#/properties/t/items/properties/tt/oneOf/1/const",
+    "keyword": "const",
+    "params": {
+      "allowedValue": "LP217198-3"
+    },
+    "message": "must be equal to constant"
+  },
+  {
+    "instancePath": "/t/0/tt",
+    "schemaPath": "#/properties/t/items/properties/tt/oneOf",
+    "keyword": "oneOf",
+    "params": {
+      "passingSchemas": null
+    },
+    "message": "must match exactly one schema in oneOf"
+  }
+]
